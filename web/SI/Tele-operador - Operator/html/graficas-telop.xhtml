@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../css/estilos-teleOperador/reportes.css"/>
+        <link rel="icon" type="img/png" href="../../../img/logo1.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+              crossorigin="anonymous"/>
+        <title>#{men.tel}</title>
+         <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+    </h:head>
+    <h:body>
+        <h:form id="selectGrafica">
+            <div class="col-md-4">
+                <h:selectOneMenu styleClass="form-control tipoAf" id="tipoAf" onchange="formulario()">
+                    <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                    <f:selectItem itemLabel="#{men.conMay}" itemValue="1"></f:selectItem>
+                    <f:selectItem itemLabel="#{men.modVeh}" itemValue="2"></f:selectItem>
+                </h:selectOneMenu>
+            </div>
+            </h:form>
+            <h:panelGroup id="grafServ">
+                <h:form>
+                    <h:selectOneMenu value="#{cargaGraficaRequest.mes}">
+                        <f:selectItem itemLabel="#{men.en}" itemValue="1"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.fe}" itemValue="2"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.mar}" itemValue="3"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.ab}" itemValue="4"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.may}" itemValue="5"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.jun}" itemValue="6"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.jul}" itemValue="7"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.ag}" itemValue="8"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.sep}" itemValue="9"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.oct}" itemValue="10"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.nov}" itemValue="11"></f:selectItem>
+                        <f:selectItem itemLabel="#{men.dic}" itemValue="12"></f:selectItem>
+                        <f:ajax listener="#{cargaGraficaRequest.servicios()}" execute="@form" render="graficaServicio"></f:ajax>
+                    </h:selectOneMenu>
+                    <h:selectOneMenu value="#{cargaGraficaRequest.anio}">
+                        <f:selectItem itemLabel="2007" itemValue="2007"></f:selectItem>
+                        <f:selectItem itemLabel="2008" itemValue="2008"></f:selectItem>
+                        <f:selectItem itemLabel="2009" itemValue="2009"></f:selectItem>
+                        <f:selectItem itemLabel="2010" itemValue="2010"></f:selectItem>
+                        <f:selectItem itemLabel="2011" itemValue="2011"></f:selectItem>
+                        <f:selectItem itemLabel="2012" itemValue="2012"></f:selectItem>
+                        <f:selectItem itemLabel="2013" itemValue="2013"></f:selectItem>
+                        <f:selectItem itemLabel="2014" itemValue="2014"></f:selectItem>
+                        <f:selectItem itemLabel="2015" itemValue="2015"></f:selectItem>
+                        <f:selectItem itemLabel="2016" itemValue="2016"></f:selectItem>
+                        <f:selectItem itemLabel="2017" itemValue="2017"></f:selectItem>
+                        <f:selectItem itemLabel="2018" itemValue="2018"></f:selectItem>
+                        <f:selectItem itemLabel="2019" itemValue="2019"></f:selectItem>
+                        <f:ajax listener="#{cargaGraficaRequest.servicios()}" execute="@form" render="graficaServicio"></f:ajax>
+                    </h:selectOneMenu>
+                </h:form>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                <h:panelGroup id="graficaServicio">
+                    <div>
+                        <div id="Servicio" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+                    </div>
+                    <script>
+
+
+
+                    var Servicio = new CanvasJS.Chart("Servicio", {
+                        animationEnabled: true,
+
+                        title: {
+                            text: "#{men.conMay}"
+                        },
+                        axisX: {
+                            interval: 1
+                        },
+                        axisY2: {
+                            interlacedColor: "rgba(1,77,101,.2)",
+                            gridColor: "rgba(1,77,101,.1)",
+                            title: ""
+                        },
+                        data: [{
+                                type: "bar",
+                                name: "companies",
+                                axisYType: "secondary",
+                                color: "#014D65",
+                                dataPoints: [
+                        #{cargaGraficaRequest.graficaServicio}
+                                ]
+                            }]
+                    });
+                    Servicio.render();
+
+                    function formulario() {
+                        var opt = $('.tipoAf').val();
+
+                        if (opt === "1") {
+                            $('#grafServ').show();
+                            $('#grafModelo').hide();
+
+                        } else if (opt === "2") {
+                            $('#grafServ').hide();
+                            $('#grafModelo').show();
+
+                        }
+                        console.log('aquí no debería llegar')
+                    }
+                    </script>
+                </h:panelGroup>
+            </h:panelGroup>
+            <h:panelGroup id="grafModelo" style="display: none;">
+                <div>
+                    <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+                    #{cargaGraficaRequest.modelo()}
+                </div>
+                <script>
+
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        theme: "dark2", // "light1", "light2", "dark1", "dark2"
+                        exportEnabled: true,
+                        animationEnabled: true,
+                        title: {
+                            text: "#{men.modVeh}"
+                        },
+                        data: [{
+                                type: "pie",
+                                startAngle: 25,
+                                toolTipContent: "<b>{label}</b>: {y}",
+                                showInLegend: "true",
+                                legendText: "{label}",
+                                indexLabelFontSize: 16,
+                                indexLabel: "{label} : {y}",
+                                dataPoints: [
+                    #{cargaGraficaRequest.graficaModelos}
+                                ]
+                            }]
+                    });
+                    chart.render();
+                </script>
+            </h:panelGroup>
+
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+
+    </h:body>
+</html>
+

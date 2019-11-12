@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <!-- METADATOS -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="author" content="STATX - Gaes #3"/>
+
+        <!-- CSS -->
+        <link rel="stylesheet" media="all" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" media="all" type="text/css" href="css/css.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+        <!-- ÍCONO -->
+        <link rel="icon" type="img/png" href="img/logo1.png"/>
+
+        <title>STATX</title>
+        <f:loadBundle var="men" basename="edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+
+    </h:head>
+    <h:body>
+
+        <div class="inicio p-0" id="inicio">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-s">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav d-flex justify-content-around w-100">
+                        <a class="nav-item nav-link btn-s" href="#inicio">#{men.inicio}</a>
+                        <a class="nav-item nav-link btn-s" href="#quienes_somos">#{men.qSomos}</a>
+                        <a class="nav-item nav-link btn-s" href="#contacto">#{men.contactenos}</a>
+                        <a class="nav-item nav-link btn-s" href="#modal1" data-toggle="modal">#{men.iniSesion}</a>
+                        <h:form class="nav-item nav-link btn-s">
+                            <a class="">
+                                <h:commandButton  class="btn-lan" action="#{idiomaSession.cambiarIdioma(men.idioma)}" value="#{men.idioma}">
+                                </h:commandButton> <img src="img/#{men.img}.png"></img>
+
+                            </a>
+                        </h:form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container cont-1 align-content-center">	
+                <article class="row align-items-center in-txt col-12">
+                    <div class="col-lg-1 d-none d-lg-block"><img src="img/division.png"></img></div>
+                    <div class="p-txt col-lg-10">
+                        <p> #{men.intro}</p>
+                    </div>
+
+                    <!--Formulario de Inicio de sesión-->
+                    <div class="modal fade" id="modal1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-tittle col-12"><b>#{men.ingresar}</b>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                            &times;
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">
+
+                                    <h:form class="form-s col-lg-8" id="needs-validation" html5:novalidate="true">
+                                        <div class="form-s-enc">
+                                            <h5><b>#{men.ingresar}</b></h5>
+                                        </div>
+                                        <div class="form-s-cuerpo form-group  ">
+                                            <label for="NombreUsuario" class="sr-only">#{men.correo}</label>
+                                            <h:inputText class="col-10 form-control" value="#{usuarioSession.correo}" id="exampleInputEmail1"
+                                                         html5:aria-describedby="emailHelp" html5:required="true"
+                                                         html5:placeholder="#{men.ingCorreo}" ></h:inputText>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="form-s-cuerpo form-group">
+                                            <h:inputSecret class="col-10 form-control" html5:required="true" value="#{usuarioSession.clave}" id="exampleInputPassword1"
+                                                           html5:placeholder="#{men.contrasenia}"/>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <h:commandButton action="#{usuarioSession.validarUsuario()}"  class="btn-form-s col-6" value="#{men.iniSesion}"></h:commandButton>
+                                        </div>
+                                    </h:form>
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <a class="btn-form-s col-6" data-toggle="modal" href="#modalContrasenia">#{men.olvcontraseña}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="modalContrasenia">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <h:form class="form-s col-lg-8" html5:novalidate="true" >
+                                        <div class="form-s-enc">
+                                            <h5><b>#{men.olvcontraseña}</b></h5>
+                                        </div>
+                                        <div class="form-s-cuerpo form-group  ">
+                                            <label for="NombreUsuario" class="sr-only">#{men.correo}</label>
+                                            <h:inputText class="col-10 form-control" value="#{mailRequest.destinatario}" id="exampleInputEmail1"
+                                                         html5:aria-describedby="emailHelp" html5:required="true"
+                                                         html5:placeholder="#{men.ingCorreo}" >
+                                            </h:inputText>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:commandButton action="#{mailRequest.enviarCorreo()}"  class="btn-form-s col-6" value="#{men.enviar}"></h:commandButton>
+                                        </div>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+
+            <!-- Quienes somos -->
+
+            <div class="historia-s" id="quienes_somos">
+                <div class="container">
+                    <article class="row mis his-txt justify-content-center align-items-center">
+                        <div class="mis-txt col-lg-3">
+                            <h5><b>#{men.mision}</b></h5>
+                            <p>#{men.descMision}</p>
+                        </div>
+                        <div class="img d-none d-lg-block"><img src="img/division2.png"></img></div>
+
+                        <div class="mis-txt col-lg-3">
+                            <h5><b>#{men.vision}</b></h5>
+                            <p>#{men.descVision}</p>
+                        </div>
+                        <div class="img d-none d-lg-block"><img src="img/division2.png"></img></div>
+                        <div class="mis-txt col-lg-3">
+                            <h5><b>#{men.Valores}</b></h5>
+                            <p>#{men.descValores}</p>
+                            <ul>
+                                <li>#{men.descValoresLista1}</li>
+                                <li>#{men.descValoresLista2}</li>
+                                <li>#{men.descValoresLista3}</li>
+                            </ul>
+                        </div>
+                        <div class="img d-none d-lg-blockimg"><img src="img/division2.png"></img></div>
+                    </article>
+                </div>
+
+            </div>
+
+            <!-- Contáctenos -->
+            <div class="contactenos" id="contacto">
+                <div class="container justify-content-around">
+                    <article class="row form-group justify-content-center align-items-center">
+                        <h:form class="form-s-2 col-lg-4 justify-content-center align-items-center needs-validation">
+
+                            <div class="form-s-enc form-s-2-enc">
+                                <h5>#{men.mensajeria}</h5>
+                            </div>
+
+                            <div class="form-group form-s-2-cuerpo col-10 offset-1">
+                                <h:inputText id ="sNombre" requiredMessage="Ingrese un nombre"
+                                             validatorMessage="Ingrese un nombre válido"
+                                             class="form-control" html5:placeholder="#{men.nombre}"
+                                             html5:required="true">
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+
+                            <div class="form-group form-s-2-cuerpo col-10 offset-1">
+                                <h:inputText html5:type="email" id="sCorreo" requiredMessage="Ingrese un correo"
+                                             validatorMessage="Ingrese un correo válido" class="form-control"
+                                             html5:placeholder="#{men.correo}"
+                                             html5:required="true" ></h:inputText>
+                                <div>
+                                    <h:message class="was-validated" for="sCorreo" showSummary="false"
+                                               style="color:#dc3545;"></h:message>
+                                </div> 
+                            </div>
+
+                            <div class="form-group form-s-2-cuerpo offset-1 col-10">
+                                <h:inputTextarea id="sMen" requiredMessage="Ingrese un mensaje para continuar"
+                                                 class="col-12 form-control"
+                                                 validatorMessage="Ingrese un mensaje, mínimo 10 carácteres"
+                                                 html5:placeholder="#{men.mensaje}" html5:required="true">
+                                    <f:validateLength minimum="10" maximum="150"></f:validateLength>
+                                </h:inputTextarea>
+                                <div>
+                                    <h:message for="sMen" showSummary="false"
+                                               style="color:#dc3545;"></h:message>
+                                </div> 
+                            </div>
+
+                            <div class="row col-10 offset-2">
+                                <h:commandButton  class="btn-s-form-2 col-10" value="#{men.enviar}"></h:commandButton>
+                            </div>
+
+                        </h:form>
+
+                        <div class="img d-none d-lg-block"><img src="img/division2.png"></img></div>
+
+                        <!-- Llámanos -->
+                        <section class="izq-uno col-12 col-lg-4">
+                            <div class="txt1">
+                                <div class="art-uno">
+                                    <h1>#{men.servicio}</h1>
+                                    <p>#{men.nServicio}</p>
+                                </div>
+
+                                <div class="art-dos">
+                                    <h1>#{men.consulta}</h1>
+                                    <p><b>#{men.llamanos}</b></p>
+                                    <p>#{men.nLlamanos}</p>
+                                    <p><b>#{men.escribenos}</b></p>
+                                    <p>#{men.correoEj}</p>
+                                </div>
+                            </div>
+                            <div class="img d-none d-lg-block"><img src="img/division2.png"></img></div>
+                        </section>
+
+                        <!-- Ubícanos -->
+                        <section class="izq-uno col-12 col-lg-3">
+                            <div class="txt1">
+                                <h1><b>#{men.ubicanos}</b></h1>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.848791743421!2d-73.9863806852166!3d40.765350342288066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258581e5099e1%3A0xc3e4d8dccf2ca577!2s923+8th+Ave%2C+New+York%2C+NY+10019%2C+EE.+UU.!5e0!3m2!1ses!2sco!4v1542531634383"
+                                    width="300" height="300" frameborder="0"></iframe>
+                            </div>
+                        </section>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- JavaScript -->
+
+        <script type="text/javascript">
+            function ValidarUsuOK(a) {
+                Swal.fire(
+                        '#{men.mailPass} ' + a,
+                        '#{men.noVal}',
+                        'error'
+                        )
+            }
+
+            function ValidarUsuError(a) {
+                Swal.fire(
+                        '#{men.mailandPass} ',
+                        '#{men.ingrData}',
+                        'error'
+                        )
+            }
+
+            function emailEnviado(a) {
+                Swal.fire(
+                        '#{men.mailSent} ' + a,
+                        '#{men.success}',
+                        'success'
+                        )
+            }
+        </script>
+
+        <script src="js/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/form-statx-script.js"></script>
+    </h:body>
+</html>
+

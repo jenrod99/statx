@@ -1,0 +1,281 @@
+/* FUENTES */
+
+
+@import "compass/css3";
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+    color: #233656;
+    background-color:rgba(255,255,255,0.3);
+}
+
+.cont {
+    text-align: center;
+}
+
+.in {
+    border-left: 1px solid rgba(128, 128, 128, 0.678);
+    background-color: #E6E6E6;
+}
+
+/*Modal*/
+.modal-content {
+    
+    margin: auto;
+}
+
+.modal-dialog {
+    max-width: 1000px;
+}
+
+.close {
+    color: #000;
+}
+
+.close:hover {
+    color: #000;
+}
+.uno {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+/* Borde de las tablas */
+
+.bor {
+    border-right: 1px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.678)
+}
+
+/*Barra de búsqueda*/
+
+.flexsearch--wrapper {
+    height: 100px;
+    max-width: 500px;
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    position: static;
+}
+
+.flexsearch--form {
+    overflow: hidden;
+    position: relative;
+}
+
+.flexsearch--input-wrapper {
+    padding: 0 66px 0 0;
+    overflow: hidden;
+}
+
+.flexsearch--input {
+    width: 100%;
+}
+
+/* .flexsearch {
+    padding: 0 25px 0 200px;
+    margin-left: 10px;
+} */
+
+.flexsearch--input {
+    box-sizing: content-box;
+    height: 30px;
+    padding: 3px;
+    border: #233656 solid 1px;
+    margin-top: 30px;
+    color: #333;
+    font-size: 16px;
+}
+
+.flexsearch--submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+    margin-right: 5px;
+    background: transparent;
+    color: #233656;
+    font-size: 30px;
+}
+
+/* buscar */
+h1 {
+    float: left;
+    margin-left: 1em;
+    margin-right: 0.5em;
+    margin-top: 25px;
+    color: #233656;
+    font-family: 'lato', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 45px;
+    text-align: center;
+}
+
+/*Datos*/
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 5px;
+}
+
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px;
+}
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+.container-fluid {
+      margin-top: 0px;
+    padding-top: 0px;
+}
+
+.table {
+    width: 99%;
+}
+
+.table3 tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table3 tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table3 tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table3 tr td a {
+    text-decoration: none;
+    color: #233656;
+}
+
+.table3 tr td a i {
+    margin-left: 20px;
+}
+
+.admon {
+    float: left;
+    /* width: 40%; */
+    text-align: center;
+    padding-top: 2px;
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+.tres {
+    font-size: 110px;
+    color: rgb(188, 196, 195);
+}
+
+#title {
+    font-family: 'Lato', sans-serif;
+    
+    border-radius: 10px 10px 0px 0px;
+    float: center;
+}
+
+.admon {
+    margin: 0px auto;
+}
+
+.admon ul {
+    /* width: 70%; */
+    margin: 20px auto;
+    list-style: none;
+    border-radius: 30px;
+}
+
+.admon ul li {
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+#final {
+    border-radius: 0px 0px 10px 10px;
+}
+
+/*Tabla actualizacion*/
+#title2 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px;
+}
+
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 1px;
+}
+
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+.table2 {
+    /* width: 10%; */
+    height: 30%;
+    padding: 0px;
+    float: left;
+    margin-right: 10px;
+}
+
+.table tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table2 tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table2 tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table2 tr td a {
+    text-decoration: none;
+    color: #233656;
+}
+
+.table2 tr td a i {
+    margin-left: 20px;
+}
+
+/* responsive design */
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.flexsearch {
+		padding: 0 25px 0 200px;
+		margin-left: 10px;
+	}
+
+	h1 {
+		margin-left: 130px;
+	}
+}

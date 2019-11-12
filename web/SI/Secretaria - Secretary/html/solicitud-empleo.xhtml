@@ -1,0 +1,824 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="icon" type="img/png" href="../../../img/logo1.png"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../css/estilos-principal.css"/>
+        <link rel="stylesheet" href="../../css/estilos-secretaria/estilos-solicitud.css"/>
+        <title>#{men.nvaSol}</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+
+    </h:head>
+    <h:body>
+        <!-- Navegación -->
+
+        <nav class="navegacion">
+            <ul>
+                <li class="borde"><a class="enlace" href="#sol">#{men.crNvaSol}</a></li>
+                <!--<li class="borde"><a class="enlace" href="#estado">Verificar estado de solicitudes</a></li>-->
+            </ul>
+        </nav>
+
+        <!-- Nueva solicitud de empleo -->
+
+        <section id="sol">
+            <h:panelGroup>
+                <h:form>
+                    <div class="form-row form-s col-10 offset-2">
+                        <div class="col-md-4">
+                            <label>#{men.tipAf}</label>
+                        </div>
+                        <div class="col-md-4">
+                            <h:selectOneMenu styleClass="form-control tipoAf" id="tipoAf" onchange="formulario()">
+                                <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                <f:selectItem itemLabel="#{men.du}" itemValue="1"></f:selectItem>
+                                <f:selectItem itemLabel="#{men.af}" itemValue="2"></f:selectItem>
+                                <f:selectItem itemLabel="#{men.vin}" itemValue="3"></f:selectItem>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                </h:form>
+            </h:panelGroup>
+
+
+            <h:panelGroup>
+                <div id="duenio" class="scale-open" style="display:none;">
+                    <h:form class="form-s-1">
+                        <div class="form-se-enc">
+                            <h5>#{men.du}</h5>
+                        </div>
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMN}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pNombre" requiredMessage="Ingrese un nombre"
+                                             validatorMessage="Ingrese un nombre válido"
+                                             class="form-control" html5:placeholder="#{men.aplMNu}"
+                                             html5:required="true" value="#{usuarioSession.primer_nombre}">
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="pNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="sNombre" 
+                                             class="form-control" html5:placeholder="#{men.aplMNs}"
+                                             html5:required="true" value="#{usuarioSession.segundo_nombre}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplML}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pApellido" requiredMessage="Ingrese un apellido"
+                                             validatorMessage="Ingrese un apellido válido"
+                                             class="form-control" html5:placeholder="#{men.aplMLu}"
+                                             html5:required="true" value="#{usuarioSession.primer_apellido}" >
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="pApellido" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="sApellido" 
+                                             class="form-control" html5:placeholder="#{men.aplMLs}"
+                                             html5:required="true" value="#{usuarioSession.segundo_apellido}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sApellido" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label>#{men.gen}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:selectOneMenu styleClass="form-control" value="#{usuarioSession.genero}" >
+                                     <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.mas}" itemValue="1"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.fem}" itemValue="2"></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label>#{men.aplMIdT}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:selectOneMenu styleClass="form-control">
+                                     <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.cc}" itemValue="1"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.cExt}" itemValue="2"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.pas}" itemValue="3"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.lic}" itemValue="4"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.tarP}" itemValue="5"></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMIdI}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="ident" requiredMessage="Ingrese el número de identificación"
+                                             validatorMessage="Ingrese un número de identificación válido"
+                                             class="form-control" html5:placeholder="#{men.aplMIdI}"
+                                             html5:pattern="[A-Za-z0-9]+"
+                                             html5:required="true" value="#{usuarioSession.numero_identificacion}" >
+                                    <f:validateLength minimum="10" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="ident" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.telCon}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="telCon" requiredMessage="Ingrese el teléfono de contacto"
+                                             validatorMessage="Ingrese un teléfono válido"
+                                             class="form-control" html5:placeholder="#{men.numTelCon}"
+                                             html5:required="true"
+                                             html5:pattern="[0-9]+" value="#{usuarioSession.telefono}" >
+                                    <f:validateLength minimum="7" maximum="10"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="telCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.cel}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="celCon" requiredMessage="Ingrese el número de celular"
+                                             validatorMessage="Ingrese un número de celular válido"
+                                             class="form-control" html5:placeholder="#{men.numCel}"
+                                             html5:required="true" html5:pattern="[0-9]+"
+                                             value="#{usuarioSession.numeroCelular}" >
+                                    <f:validateLength minimum="10" maximum="13"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="celCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMLict}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="numLic" 
+                                             class="form-control" html5:placeholder="#{men.aplMLictEx}"
+                                             html5:required="true" html5:pattern="[0-9]+"
+                                             value="#{usuarioSession.numnero_licencia}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="numLic" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.addr}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="direccion" 
+                                             class="form-control" html5:placeholder="#{men.punParEx}"
+                                             html5:required="true" value="#{usuarioSession.direccion}" >
+                                    <f:validateLength minimum="0" maximum="20"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="direccion" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.email}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText html5:type="email" id="corCon" requiredMessage="Ingrese un correo electrónico"
+                                             validatorMessage="Ingrese una correo válido"
+                                             class="form-control" html5:placeholder="#{men.emailEx}"
+                                             html5:required="true" value="#{usuarioSession.correo}" >
+                                    <f:validateLength minimum="10"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="corCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="row col-12  justify-content-center">
+                            <h:commandButton html5:type="submit" class="btn btn-s col-3" style="margin-top: 15px;"
+                                             value="#{men.btnEnv}" action="#{usuarioSession.ingresaUsuarioConductor()}"></h:commandButton>
+                        </div>
+
+                    </h:form>
+                </div>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <div id="afiliacion" class="scale-open" style="display:none;">
+                    <h:form class="form-s form-s-1" >
+                        <div class="form-se-enc">
+                            <h5>#{men.af}</h5>
+                        </div>
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMN}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pNombre" requiredMessage="Ingrese un nombre"
+                                             validatorMessage="Ingrese un nombre válido"
+                                             class="form-control" html5:placeholder="#{men.aplMNu}"
+                                             html5:required="true" value="#{usuarioSession.primer_nombre}">
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="pNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="sNombre" 
+                                             class="form-control" html5:placeholder="#{men.aplMNs}"
+                                             html5:required="false" value="#{usuarioSession.segundo_nombre}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplML}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pApellido" requiredMessage="Ingrese un apellido"
+                                             validatorMessage="Ingrese un apellido válido"
+                                             class="form-control" html5:placeholder="#{men.aplMLu}"
+                                             html5:required="true" value="#{usuarioSession.primer_apellido}" >
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="pApellido" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="sApellido" 
+                                             class="form-control" html5:placeholder="#{men.aplMLs}"
+                                             html5:required="false" value="#{usuarioSession.segundo_apellido}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sApellido" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label>#{men.gen}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:selectOneMenu styleClass="form-control" value="#{usuarioSession.genero}" >
+                                   
+                                    <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.mas}" itemValue="1"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.fem}" itemValue="2"></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label>#{men.aplMIdT}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:selectOneMenu styleClass="form-control">
+                                     <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.cc}" itemValue="1"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.cExt}" itemValue="2"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.pas}" itemValue="3"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.lic}" itemValue="4"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.tarP}" itemValue="5"></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMIdI}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="ident" requiredMessage="Ingrese el número de identificación"
+                                             validatorMessage="Ingrese un número de identificación válido"
+                                             class="form-control" html5:placeholder="#{men.aplMIdI}"
+                                             html5:required="true" value="#{usuarioSession.numero_identificacion}" >
+                                    <f:validateLength minimum="10" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="ident" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.telCon}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="telCon" requiredMessage="Ingrese el teléfono de contacto"
+                                             validatorMessage="Ingrese un teléfono válido"
+                                             class="form-control" html5:placeholder="#{men.numTelCon}"
+                                             html5:required="true" html5:pattern="[0-9]+"
+                                             value="#{usuarioSession.telefono}" >
+                                    <f:validateLength minimum="7" maximum="10"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="telCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.cel}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="celCon" requiredMessage="Ingrese el número de celular"
+                                             validatorMessage="Ingrese un número de celular válido"
+                                             class="form-control" html5:pattern="[0-9]+"
+                                             html5:placeholder="#{men.numCel}"
+                                             html5:required="true" value="#{usuarioSession.numeroCelular}" >
+                                    <f:validateLength minimum="10" maximum="13"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="celCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.email}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText html5:type="email" id="corCon" requiredMessage="Ingrese un correo electrónico"
+                                             validatorMessage="Ingrese una correo válido"
+                                             class="form-control" html5:placeholder="#{men.emailEx}"
+                                             html5:required="true" value="#{usuarioSession.correo}" >
+                                    <f:validateLength minimum="10"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="corCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMLict}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="licenciaAf" requiredMessage="Ingrese el número de licencia"
+                                             validatorMessage="Ingrese un número de licencia válido"
+                                             class="form-control" html5:pattern="[0-9]+"
+                                             html5:placeholder="#{men.aplMLictEx}"
+                                             html5:required="true" value="#{usuarioSession.numnero_licencia}" >
+                                    <f:validateLength minimum="10" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="licenciaAf" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.idCop}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="cedula" html5:type="file"
+                                             html5:accept=".pdf,.jpg,.png"
+                                             requiredMessage="Ingrese el documento"
+                                             html5:placeholder="Ingrese el documento"
+                                             html5:required="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.espCert}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="eps" html5:type="file"
+                                             html5:accept=".pdf,.jpg,.png"
+                                             requiredMessage="Ingrese el documento"
+                                             html5:placeholder="Ingrese el documento"
+                                             html5:required="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.penCert}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pensiones" html5:type="file"
+                                             html5:accept=".pdf,.jpg,.png"
+                                             requiredMessage="Ingrese el documento"
+                                             html5:placeholder="Ingrese el documento"
+                                             html5:required="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.actContSec}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="actualContra" requiredMessage="Ingrese el número de póliza"
+                                             validatorMessage="Ingrese un número de póliza válido"
+                                             html5:pattern="[0-9]+"
+                                             class="form-control" html5:placeholder="#{men.actContSecEx}"
+                                             html5:required="true" value="#{usuarioSession.seguro}" >
+                                    <f:validateLength minimum="8" maximum="12"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="actualContra" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="row col-12  justify-content-center">
+                            <h:commandButton html5:type="submit" class="btn btn-s col-3" style="margin-top: 15px;"
+                                             value="#{men.btnEnv}" action="#{usuarioSession.ingresaUsuarioConductorAfiliado()}"></h:commandButton>
+                        </div>
+
+                    </h:form>
+                </div>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <div id="vinculacion" class="scale-open" style="display:none;">
+                    <h:form class="form-s form-s-1" >
+                        <div class="form-se-enc">
+                            <h5>#{men.vin}</h5>
+                        </div>
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMN}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pNombre" requiredMessage="Ingrese un nombre"
+                                             validatorMessage="Ingrese un nombre válido"
+                                             class="form-control" html5:placeholder="#{men.aplMNu}"
+                                             html5:required="true" value="#{usuarioSession.primer_nombre}">
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="pNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="sNombre" 
+                                             class="form-control" html5:placeholder="#{men.aplMNs}"
+                                             html5:required="false" value="#{usuarioSession.segundo_nombre}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sNombre" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplML}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pApellido" requiredMessage="Ingrese un apellido"
+                                             validatorMessage="Ingrese un apellido válido"
+                                             class="form-control" html5:placeholder="#{men.aplMLu}"
+                                             html5:required="true" value="#{usuarioSession.primer_apellido}" >
+                                    <f:validateLength minimum="3" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="pApellido" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="sApellido" 
+                                             class="form-control" html5:placeholder="#{men.aplMLs}"
+                                             html5:required="false" value="#{usuarioSession.segundo_apellido}" >
+                                    <f:validateLength minimum="0" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="sApellido" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label>#{men.gen}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:selectOneMenu styleClass="form-control" value="#{usuarioSession.genero}" >
+                                    <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.mas}" itemValue="1"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.fem}" itemValue="2"></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label>#{men.aplMIdT}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:selectOneMenu styleClass="form-control">
+                                    <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.cc}" itemValue="1"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.cExt}" itemValue="2"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.pas}" itemValue="3"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.lic}" itemValue="4"></f:selectItem>
+                                    <f:selectItem itemLabel="#{men.tarP}" itemValue="5"></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMIdI}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="ident" requiredMessage="Ingrese el número de identificación"
+                                             validatorMessage="Ingrese un número de identificación válido"
+                                             class="form-control" html5:placeholder="#{men.aplMIdI}"
+                                             html5:required="true" value="#{usuarioSession.numero_identificacion}" >
+                                    <f:validateLength minimum="10" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="ident" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.telCon}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="telCon" requiredMessage="Ingrese el teléfono de contacto"
+                                             validatorMessage="Ingrese un teléfono válido"
+                                             html5:pattern="[0-9]+"
+                                             class="form-control" html5:placeholder="#{men.numTelCon}"
+                                             html5:required="true" value="#{usuarioSession.telefono}" >
+                                    <f:validateLength minimum="7" maximum="10"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="telCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.cel}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="celCon" requiredMessage="Ingrese el número de celular"
+                                             validatorMessage="Ingrese un número de celular válido"
+                                             html5:pattern="[0-9]+"
+                                             class="form-control" html5:placeholder="#{men.numCel}"
+                                             html5:required="true" value="#{usuarioSession.numeroCelular}" >
+                                    <f:validateLength minimum="10" maximum="13"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="celCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.email}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText html5:type="email" id="corCon" requiredMessage="Ingrese un correo electrónico"
+                                             validatorMessage="Ingrese una correo válido"
+                                             class="form-control" html5:placeholder="#{men.emailEx}"
+                                             html5:required="true" value="#{usuarioSession.correo}" >
+                                    <f:validateLength minimum="10"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="corCon" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.aplMLict}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="licenciaAf" requiredMessage="Ingrese el número de licencia"
+                                             validatorMessage="Ingrese un número de licencia válido"
+                                             class="form-control"
+                                             html5:pattern="[0-9]+"
+                                             html5:placeholder="#{men.aplMLictEx}"
+                                             html5:required="true" value="#{usuarioSession.numnero_licencia}" >
+                                    <f:validateLength minimum="10" maximum="15"></f:validateLength>
+                                </h:inputText>
+                                <div>
+                                    <h:message for="licenciaAf" showSummary="false"
+                                               style="color:#dc3545"></h:message>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.idCop}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="cedula" html5:type="file"
+                                             html5:accept=".pdf,.jpg,.png"
+                                             requiredMessage="Ingrese el documento"
+                                             html5:placeholder="Ingrese el documento"
+                                             html5:required="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.espCert}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="eps" html5:type="file"
+                                             html5:accept=".pdf,.jpg,.png"
+                                             requiredMessage="Ingrese el documento"
+                                             html5:placeholder="Ingrese el documento"
+                                             html5:required="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-s col-12">
+                            <div class="col-md-4">
+                                <label for="inputName">#{men.penCert}</label>
+                            </div>
+                            <div class="col-md-4">
+                                <h:inputText id="pensiones" html5:type="file"
+                                             html5:accept=".pdf,.jpg,.png"
+                                             requiredMessage="Ingrese el documento"
+                                             html5:placeholder="Ingrese el documento"
+                                             html5:required="true">
+                                </h:inputText>
+                            </div>
+                        </div>
+                        <div class="row col-12  justify-content-center">
+                            <h:commandButton html5:type="submit" class="btn btn-s col-3" style="margin-top: 15px;"
+                                             value="#{men.btnEnv}" action="#{usuarioSession.ingresaUsuarioConductorVinculacion()}"></h:commandButton>
+                        </div>
+
+                    </h:form>
+                </div>
+            </h:panelGroup>
+        </section>
+
+        <div class="container">
+            <div class="addTxt">
+                <p>#{men.crConTxt}</p>
+            </div>
+            <h:form enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="datosConductor" >#{men.anSol}</span>
+
+                                <h:inputFile class="custom-file-input" id="datosConductor"
+                                             html5:aria-describedby="" value="#{cargarArchivos.datosConductor}" validator="#{cargarArchivos.validarArchivo}"></h:inputFile>
+                                             <h:commandButton value="subir archivo" action="#{cargarArchivos.ingresarConductor()}"></h:commandButton>
+                                <label class="custom-file-label col-10" for="datosConductor">#{men.choose}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+
+                        <h:commandButton class="enlace" style="margin-left: 0px !important; margin-top: 0px !important;" value="#{men.btnEnv}">
+                            <f:ajax render="@form" listener="#{cargarArchivos.ingresarConductor()}" execute="@form"></f:ajax>
+                        </h:commandButton>
+
+                    </div>
+
+                    <h:messages style="color: #f50057;"></h:messages>
+                </div>
+            </h:form>
+
+        </div>
+
+
+        <!-- JavaScript -->
+
+        <script>
+            function formulario() {
+                // var opt = $('#tipoAf').val();                    
+
+
+                if ($(".tipoAf").val() == 1) {
+                    $('#duenio').show();
+                    $('#afiliacion').hide();
+                    $('#vinculacion').hide();
+
+                } else if ($(".tipoAf").val() == 2) {
+                    $('#duenio').hide();
+                    $('#afiliacion').show();
+                    $('#vinculacion').hide();
+
+                } else if ($(".tipoAf").val() == 3) {
+                    $('#duenio').hide();
+                    $('#afiliacion').hide();
+                    $('#vinculacion').show();
+
+                } else
+                    console.log('aquí no debería llegar')
+
+            }
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+
+    </h:body>
+</html>
+

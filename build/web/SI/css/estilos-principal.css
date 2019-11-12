@@ -1,0 +1,245 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/06/2019, 11:07:55 AM
+    Author     : Aprendiz
+*/
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+
+/* Background */
+
+body {
+    background-image: url(../../img/fondo2.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+/* Logo */
+
+.logo {
+    float: left;
+    height: 80px;
+    width: 15%;
+    background-color: #CDD6D5;
+}
+
+.logo img {
+    height: 65px;
+    width: 62px;
+    margin: 3% 0% 3% 50%;
+}
+
+.navbar-light .navbar-nav .enlace,
+.enlace {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    color: #233656;
+    text-decoration: none;
+    display: flex;
+    margin-top: 7px;
+    margin-right: 10px;
+    border-radius: 5px;
+    width:97px;
+    border: 1px solid #233656;
+}
+.enlace:hover {
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    background-color: #233656;
+}
+
+.img-lan {
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.btn-lan {  
+    font-size: 14px;
+    text-align: center;
+    color: #233656;
+    border: none;
+    background-color: #CDD6D5;
+    border-radius: 5px;
+}
+
+.btn-lan:hover {
+    background-color: #233656;;
+    color: white;
+}
+
+.uno {
+    margin-right: 10px;
+    font-size: 35px;
+}
+
+
+
+.dropdown-item:hover {
+    color: white;
+    background-color: #233656;
+}
+
+/* Navegación */
+nav {
+    background-color: #CDD6D5;
+}
+
+/* Notificaciones */
+.dropdown-menu,
+.dropdown-menu.show {
+    position: absolute;
+    right: 0;
+    left: inherit;
+}
+
+.notification-button {
+    color: #233656;
+    transition: all, .4s;
+}
+
+.notification-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+.notification-icon {
+    font-size: 24px;
+}
+
+.notification-icon:hover {
+    font-size: 24.5px
+}
+
+.notification-button:hover {
+    text-decoration: none;
+}
+/* Opciones lateral */
+
+.contenedor1 {
+    height: 80vh;
+    width: 100%;
+}
+
+.tres {
+    font-size: 110px;
+    color: rgb(188, 196, 195);
+}
+
+.title {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.menu {
+    float: left;
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    padding-top: 6em;
+}
+
+
+.menu ul {
+    width: 70%;
+    margin: 20px auto;
+    list-style: none;
+    border-radius: 30px;
+
+}
+
+.menu ul li {
+    border: 1px solid rgba(128, 128, 128, 0.678); 
+}
+
+.menu-item {
+    width: 100%; 
+}
+
+.menu-item-a {
+    width: 100%;
+}
+
+.menu-item-a:hover {
+    background-color: #233656;
+    color: white;
+}
+
+/* Tablero principal */
+
+.pr {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+.pr iframe {
+    width: 100%;
+    height: 100vh;
+    padding-top: 5em;
+}
+
+/* Botón enviar */
+
+.btn-s {
+    text-align: center;
+    background-color: rgb(218, 218, 209);
+    border-radius: 30px;
+    border: #233656 solid 2px;
+}
+
+.btn-s:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.file-field.big .file-path-wrapper {
+    height: 3.2rem; }
+.file-field.big .file-path-wrapper .file-path {
+    height: 3rem; }
+
+.addTxt {
+    margin-top: 6%;
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 991px and less) */
+@media (max-width: 991px) {
+    .navegacion ul {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .menu,
+    .pr {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .menu {
+        padding-top: 6em;
+    }
+
+    .pr iframe {
+        height: calc(100vh - 80px);
+        padding-top: 0;
+    }
+
+}

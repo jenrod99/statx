@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="icon" type="img/png" href="../../../img/logo1.png"/>
+        <link rel="stylesheet" href="../../css/estilos-admin/estilos-editar.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+              crossorigin="anonymous"/>
+        <title>#{men.edPro}</title>
+    </h:head>
+    <h:body>
+
+        <div class="editar">
+            <div class="uno">
+                <div class="en1">
+                    <p class="enlace">#{men.gen}</p>
+                </div>
+                <div class="img">
+                    <i class="fas fa-user tres usser"></i>
+                </div>
+                <a href="#" class="camera"><i class="fas fa-camera cam"></i>#{men.edPic}</a>
+                <div>
+                    <ul class="lista nom">
+                        <li class="lista">#{usuarioSession.usuarioLog.primerNombre} #{usuarioSession.usuarioLog.segundoNombre} #{usuarioSession.usuarioLog.primerApellido} #{usuarioSession.usuarioLog.segundoApellido}<a href="#"><i class="fas fa-pen"></i></a></li>
+                        <li class="lista">#{usuarioSession.usuarioLog.numeroCelular} <a href="#"><i class="fas fa-pen"></i></a></li>
+                        <li class="lista">Rol <a href="#"><i class="fas fa-pen"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dos">
+                <div class="en1 en2">
+                    <p class="enlace">#{men.sec}</p>
+                </div>
+                <ul class="lista">
+                    <li class="lista">#{usuarioSession.usuarioLog.primerNombre} #{usuarioSession.usuarioLog.segundoNombre} #{usuarioSession.usuarioLog.primerApellido} #{usuarioSession.usuarioLog.segundoApellido} <a href="#"><i class="fas fa-pen"></i></a></li>
+                    <li class="lista">#{men.contrasenia} <a href="#"><i class="fas fa-pen"></i></a></li>
+                    <li class="lista">#{usuarioSession.usuarioLog.numeroIdentificacion} <a href="#"><i class="fas fa-pen"></i></a></li>
+                </ul>
+            </div>
+        </div> 
+    </h:body>
+</html>
+

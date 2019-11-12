@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+	<!-- METADATOS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="STATX - Gaes #3">
+
+	<!-- CSS -->
+	<link rel="stylesheet" media="all" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" media="all" type="text/css" href="css/estilos.css">
+
+	<!-- ÍCONO -->
+	<link rel="icon" type="img/png" href="img/logo1.png">
+
+	<title>STATX</title>
+</head>
+
+<body>
+	<div class="inicio p-0" id="inicio">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-s">
+			<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav d-flex justify-content-around w-100">
+					<a class="nav-item nav-link btn-s" href="#inicio">Inicio</a>
+					<a class="nav-item nav-link btn-s" href="#quienes_somos">Quienes Somos</a>
+					<a class="nav-item nav-link btn-s" href="#contacto">Contáctenos</a>
+                                        <a class="nav-item nav-link btn-s" data-toggle="modal" data-target="#modal1">Iniciar sesión</a> 
+					<a class="nav-item nav-link btn-s" href="ingles/index_en.html">English<img class="mar"
+							src="img/eng.png"></a>
+				</div>
+			</div>
+		</nav>
+		<div class="container cont-1 align-content-center">			
+			<article class="row align-items-center in-txt col-12">
+				<div class="col-lg-1 d-none d-lg-block"><img src="img/division.png"></div>
+				<div class="p-txt col-lg-5">
+					<p>Encuentre en un mismo lugar el estado de actualización de los documentos,
+						datos y mantenimientos de los vehículos y conductores; gracias a STATX su
+						sistema de información aliado para la administación de taxis.
+					</p>
+				</div>
+
+				<form class="form-s col-lg-4" id="needs-validation" novalidate>
+					<div class="form-s-enc">
+						<h5><b>Ingreso</b></h5>
+					</div>
+					<div class="form-s-cuerpo form-group">
+						<label for="NombreUsuario" class="sr-only">Nombre de Usuario</label>
+						<input type="email" class="col-10 form-control" id="exampleInputEmail1"
+							aria-describedby="emailHelp" placeholder="parodriguez@empresa.com" required>
+							<div class="invalid-feedback">Ingrese su nombre de usuario</div>
+					</div>
+					<div class="form-s-cuerpo form-group">
+						<input type="password" class="col-10 form-control" id="exampleInputPassword1"
+							placeholder="Contraseña" required>
+							<div class="invalid-feedback">Ingrese la contraseña correcta</div>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn-form-s col-6">Iniciar sesión</button>
+						<button type="" class="btn-form-s col-6">¿Olvidó su contraseña?</button>
+					</div>
+				</form>
+				</article>
+			</div>
+
+			<!--Acceso a Roles del sistema-->
+
+			<div class="d-flex flex-column flex-lg-row justify-content-lg-center">
+				<a class="btn-s-rol" href="SI/1-admin/principal.html">Administrador</a>
+				<a class="btn-s-rol" href="SI/2-secre/principal.html">Secretaria</a>
+				<a class="btn-s-rol" href="SI/3-cnd/principal.html">Conductor</a>
+				<a class="btn-s-rol" href="SI/4-telop/principal.html">Tele-operador</a>
+				<a class="btn-s-rol" href="SI/5-tesor/principal-tesoreria.html">Tesoreria</a>
+				<a class="btn-s-rol" href="SI/6-docs/documentacion.html">Diagramas STATX</a>
+			</div>
+		</div>
+
+
+	<!-- Quienes somos -->
+
+	<div class="historia-s" id="quienes_somos">
+		<div class="container">
+			<article class="row mis his-txt justify-content-center align-items-center">
+				<div class="mis-txt col-lg-3">
+					<h5><b>Misión</b></h5>
+					<p>Cooperativa Radio Taxi Ltda. es y seguirá siendo reconocida como una empresa que ofrece
+						excelentes garantías con respecto a sus vehículos en óptimo estado y sus conductores
+						capacitados. Hacemos lo posible para corresponder a sus exigencias.</p>
+				</div>
+				<div class="img d-none d-lg-block"><img src="img/division2.png"></div>
+
+				<div class="mis-txt col-lg-3">
+					<h5><b>Visión</b></h5>
+					<p>Ser la empresa líder en la ciudad, ofreciendo índices de seguridad con autos en buen estado,
+						higiene, seguridad y conductores capacitados.</p>
+				</div>
+				<div class="img d-none d-lg-block"><img src="img/division2.png"></div>
+				<div class="mis-txt col-lg-3">
+					<h5><b>Nuestros valores</b></h5>
+					<p>Estamos fuertemente comprometidos con:</p>
+					<ul>
+						<li>Alta calidad</li>
+						<li>Innovación</li>
+						<li>Responsabilidad social</li>
+						<li>Servicio de calidad</li>
+					</ul>
+				</div>
+				<div class="img d-none d-lg-blockimg"><img src="img/division2.png"></div>
+			</article>
+		</div>
+
+	</div>
+
+	<!-- Contáctenos -->
+	<div class="contactenos" id="contacto">
+		<div class="container justify-content-around">
+			<article class="row form-group justify-content-center align-items-center">
+				<form class="form-s-2 col-lg-4 justify-content-center align-items-center" id="needs-validation" novalidate>
+					<div class="form-s-enc form-s-2-enc">
+						<h5>Envíanos un mensaje</h5>
+					</div>
+					<div class="form-group form-s-2-cuerpo col-10 offset-1">
+						<input type="text" class="form-control" placeholder="Nombre" required> 
+						<div class="invalid-feedback">
+							Ingrese su nombre
+						</div>
+			
+					</div>
+					<div class="form-group form-s-2-cuerpo col-10 offset-1">
+							<input type="email" class="form-control" id="exampleInputEmail1"
+							aria-describedby="emailHelp" placeholder="Correo electrónico" required> 
+							<div class="invalid-feedback">
+								Ingrese su correo electrónico
+							</div>
+				
+					</div>
+					<div class="col-10 offset-1">
+						<textarea class="form-s-2-cuerpo form-s-2-fin form-control" id="exampleFormControlTextarea1"
+							rows="3" placeholder="Deja tu mensaje"></textarea required> 
+							<div class="invalid-feedback">
+								Ingrese su solicitud
+							</div>
+				
+					</div>
+					<div class="row col-10 offset-4">
+						<button type="submit" class="btn-s-form-2">Enviar</button>
+					</div>
+				</form>
+
+				<div class="img d-none d-lg-block"><img src="img/division2.png"></div>
+
+				<!-- Llámanos -->
+				<section class="izq-uno col-12 col-lg-4">
+					<div class="txt1">
+						<div class="art-uno">
+							<h1>¿Necesitas un servicio?</h1>
+							<p>(57 - 1) 288 8888</p>
+						</div>
+
+						<div class="art-dos">
+							<h1>¿Deseas hacer una consulta?</h1>
+							<p><b>Llámanos</b></p>
+							<p>(57 - 1) 928 4924</p>
+							<p><b>Escríbenos</b></p>
+							<p>correoempresa@empresa.com</p>
+						</div>
+					</div>
+					<div class="img d-none d-lg-block"><img src="img/division2.png"></div>
+				</section>
+
+				<!-- Ubícanos -->
+				<section class="izq-uno col-12 col-lg-3">
+					<div class="txt1">
+						<h1><b>Ubícanos</b></h1>
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.848791743421!2d-73.9863806852166!3d40.765350342288066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258581e5099e1%3A0xc3e4d8dccf2ca577!2s923+8th+Ave%2C+New+York%2C+NY+10019%2C+EE.+UU.!5e0!3m2!1ses!2sco!4v1542531634383"
+							width="300" height="300" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</section>
+			</article>
+
+		</div>
+
+	</div>
+
+
+	<!-- JavaScript -->
+
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/form-statx-script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+.cont {
+    text-align: center;
+}
+
+.in {
+    padding: 10px;
+    border-left: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+
+/* Borde de las tablas */
+
+.bor {
+    border-right: 1px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.678)
+}
+
+#contenedor-mesP {
+    width: 120px;
+    height: 40px;
+    background: #FFFD81;
+    margin-top: 10%;
+    margin-left: 125px;
+    text-align: center;
+    padding-top: 13px;
+}
+
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 5px;
+}
+
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px;
+}
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+.table3 {
+    /* width: 55%; */
+    /* height: 30%; */
+    margin-right: 300px;
+    float: right;
+}
+
+.table3 tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table3 tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table3 tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table3 tr td a {
+    text-decoration: none;
+    color: #233656;
+}
+
+.table3 tr td a i {
+    margin-left: 20px;
+}
+
+.admon {
+    float: left;
+    width: 40%;
+    height: 80%;
+    text-align: center;
+    padding-top: 1px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+.tres {
+    font-size: 110px;
+    color: rgb(188, 196, 195);
+}
+
+#title {
+    font-family: 'Lato', sans-serif;
+    margin-top: 100px;
+    border-radius: 10px 10px 0px 0px;
+    float: center;
+}
+
+.admon ul {
+    width: 70%;
+    margin: 20px auto;
+    list-style: none;
+    border-radius: 30px;
+
+}
+
+.admon ul li {
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+#color-con {
+    background: #FFFD81;
+}
+
+/*tabla 4*/
+#contenedor-mesA {
+    width: 120px;
+    height: 40px;
+    margin-top: 15%;
+    background: #FFFD81;
+    margin-left: 125px;
+    text-align: center;
+    padding-top: 13px;
+}
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+.table4 {
+    width: 55%;
+    margin-right: 300px;
+    float: right;
+}
+
+.table4 tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table4 tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table4 tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table4 tr td a {
+    text-decoration: none;
+    color: #233656;
+}
+
+.table4 tr td a i {
+    margin-left: 20px;
+}
+
+.admon {
+    float: left;
+    width: 40%;
+    height: 80%;
+    text-align: center;
+    padding-top: 1px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+.tres {
+    font-size: 110px;
+    color: rgb(188, 196, 195);
+}
+
+#title {
+    font-family: 'Lato', sans-serif;
+    margin-top: 100px;
+    border-radius: 10px 10px 0px 0px;
+    float: center;
+}
+
+.admon ul {
+    width: 70%;
+    margin: 20px auto;
+    list-style: none;
+    border-radius: 30px;
+
+}
+
+.admon ul li {
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+#color-con {
+    background: #FFFD81;
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 991px and less) */
+@media (max-width: 991px) {
+    #contenedor-mesP,
+    #contenedor-mesA {
+        margin-bottom: .5em;
+    }
+
+    .table3,
+    .table4 {
+        margin-right: 0;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    #contenedor-mesA {
+        margin-top: 8em;
+    }
+}
+

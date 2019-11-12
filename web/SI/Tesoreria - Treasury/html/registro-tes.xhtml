@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../css/estilos-teleOperador/estilos-publ-ser.css"/>
+        <link rel="icon" type="img/png" href="../../../img/logo1.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+              crossorigin="anonymous"/>
+        <title>#{men.publServ}</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+    </h:head>
+    <h:body>
+
+        <h:panelGroup>
+            <div id="servicio" class="scale-open mt-2">
+                <h:form class="form-s-1">
+                    <div class="form-se-enc">
+                        <h5>#{men.regCuo}</h5>
+                    </div>
+
+                    <div class="form-row form-s col-12">
+                        <div class="col-md-4">
+                            <label for="inputName">#{men.valEnt}</label>
+                        </div>
+                        <div class="col-md-4">
+                            <h:inputText id="celCon" requiredMessage="Ingrese el número de valor"
+                                         validatorMessage="Ingrese un número de valor válido"
+                                         class="form-control" html5:placeholder="#{men.cu}"
+                                         html5:pattern="[0-9]+"
+                                         html5:required="true" value="#{usuarioSession.valor}">
+                                <f:validateLength minimum="4" maximum="13"></f:validateLength>
+                            </h:inputText>
+                            <div>
+                                <h:message for="celCon" showSummary="false"
+                                           style="color:#dc3545"></h:message>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="form-row form-s col-12">
+                        <div class="col-md-4">
+                                <label>#{men.nomCon}</label>
+                        </div>
+                        <div class="col-md-4">
+                            <h:selectOneMenu styleClass="form-control" value="#{usuarioSession.idUsuario}" >
+                                <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                <f:selectItems value="#{usuarioSession.listaConductores()}" var="con"
+                                               itemLabel="#{con[0]}" itemValue="#{con[12]}"></f:selectItems>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="form-row form-s col-12">
+                        <div class="col-md-4">
+                            <label>#{men.tes}</label>
+                        </div>
+                        <div class="col-md-4">
+                            <h:selectOneMenu styleClass="form-control" value="#{usuarioSession.idUsu}" >
+                                <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                                <f:selectItems value="#{usuarioSession.listaTesoreros()}" var="con"
+                                               itemLabel="#{con[0]}" itemValue="#{con[2]}"></f:selectItems>
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="row col-12  justify-content-center">
+                        <h:commandButton html5:type="submit" class="btn btn-s col-3" style="margin-top: 15px;"
+                                         value="#{men.pub}" action="#{usuarioSession.registroCou()}"></h:commandButton>
+                    </div>
+
+                </h:form>
+            </div>
+        </h:panelGroup>
+        <!-- Tabla -->
+
+    </h:body>
+</html>
+

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../../css/estilos-admin/estilos-reportes.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Reportes</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+    </h:head>
+    <h:body>
+        <div id="contenedor-mesP">
+            <h4>#{men.mes}</h4>
+        </div>
+        <div class="table-responsive table3">
+            <table>
+                <tr>
+                    <td id="title3">#{men.meta}</td>
+                    <td id="title3">#{men.total}</td>
+                    <td id="title3">#{men.totalD}</td>
+                    <td id="title3">#{men.poRec}</td>
+                    <td id="title3">#{men.poPen}</td>
+                </tr>
+                <tr>
+                    <td class="bor in">$80M</td>
+                    <td class="bor">$78M</td>
+                    <td class="bor">$2M</td>
+                    <td class="bor">98%</td>
+                    <td class="bor">2%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="contenedor-mesA" class="cont">
+            <h4>#{men.mesAct}</h4>
+        </div>
+        <div class="table-responsive table4">
+            <table>
+                <tr>
+                    <td id="title3">#{men.meta}</td>
+                    <td id="title3">#{men.total}</td>
+                    <td id="title3">#{men.totalD}</td>
+                    <td id="title3">#{men.poRec}</td>
+                    <td id="title3">#{men.poPen}</td>
+                </tr>
+                <tr>
+                    <td class="bor in">$100M</td>
+                    <td class="bor">$99M</td>
+                    <td class="bor">$1M</td>
+                    <td class="bor">99%</td>
+                    <td class="bor">1%</td>
+                </tr>
+            </table>
+        </div>
+
+    </h:body>
+
+</html>
+
+
+

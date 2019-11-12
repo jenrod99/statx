@@ -1,0 +1,225 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0px 0px 5px 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: none;
+}
+
+/* Botones navegación */
+
+.enlace {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: inline;
+}
+
+.enlace:hover {
+    background-color: white;
+    color: #233656;
+    transition-duration: 0, 5s;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+
+/* Navegación */
+
+.navegacion {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    float: left;
+}
+
+.navegacion ul {
+    list-style: none;
+    text-align: center;
+    margin: 15px auto;
+    width: 80%;
+
+}
+
+.navegacion ul li {
+    display: inline;
+    align-content: center;
+    padding: 15px 20px 15px;
+    background-color: #233656;
+}
+
+.navegacion ul li:hover {
+    background-color: white;
+}
+
+.navegacion ul li a {
+    text-decoration: none;
+    padding: 15px 20px 15px;
+}
+
+.navegacion ul li a:hover {
+    text-decoration: none;
+}
+
+.divOculto {
+    display: none;
+}
+
+/* Formulario */
+
+.form-s {
+    margin-top: 10px;
+    padding-top: 2%;
+    color: #233656;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form-se-enc {
+    background-color: #233656;
+    text-align: center;
+    padding: 1%;
+    color: white;
+}
+
+.form-se-enc h5 {
+    margin-bottom: 0px;
+}
+
+.form-se-tit {
+    background-color: #CDD6D5;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.form-se-tit p {
+    margin-bottom: 0px;
+}
+
+.form-s input {
+    color: #233656;
+}
+
+/* Estado de las solicitudes*/
+
+#estado {
+    margin: 5% auto;
+}
+
+.table {
+    width: 95%;
+    height: 300px;
+    margin: 3% auto;
+}
+
+/* Título de la tabla */
+
+.uno {
+    background-color: #233656;
+    color: white;
+    width: 100%;
+    padding: 13px;
+    text-align: center;
+}
+
+/* Datos que debe diligenciar la seretaria */
+
+.cont {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Datos que solicita la tabla */
+
+.in {
+    padding: 10px;
+    border-left: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+
+/* Borde de las tablas */
+
+.bor {
+    border-right: 1px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.678)
+}
+
+/* Botón enviar */
+
+.btn-s {
+    text-align: center;
+    background-color: rgb(218, 218, 209);
+    border-radius: 30px;
+    border: #233656 solid 2px;
+}
+
+.btn-s:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+/* Sección dos
+    Tabla de estados */
+
+.subtitle {
+    background-color: rgba(194, 194, 186, 0.568);
+}
+
+/*-------------- Animations --------------*/
+.scale-open {
+    animation-duration: .5s;
+    animation-name: AnimatedOpen;
+}
+
+@keyframes AnimatedOpen {
+    from {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.01);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .navegacion {
+        height: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .navegacion ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .form-s {
+        margin-top: 0;
+    }
+
+}
+
+

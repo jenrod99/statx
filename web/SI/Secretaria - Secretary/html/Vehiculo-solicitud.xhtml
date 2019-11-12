@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="icon" type="img/png" href="../../../img/logo1.png"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../css/estilos-principal.css"/>
+        <link rel="stylesheet" href="../../css/estilos-secretaria/estilos-solicitud.css"/>
+        <title>#{men.nvaSol}</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+
+    </h:head>
+    <h:body>
+        <!-- Este es el boton de ingles -->
+        <nav class="navegacion">
+            <ul>
+                <li class="borde"><a class="enlace" href="#sol">#{men.crNvaSol}</a></li>
+                <!--<li class="borde"><a class="enlace" href="#estado">Verificar estado de solicitudes</a></li>-->
+            </ul>
+        </nav>
+        <!-- Cuerpo del formulario de vehiculo-->
+        <h:form>
+            <div class="form-se-tit">
+                <p>#{men.infVeh}</p>
+            </div>
+
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.marVeh}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="marca" requiredMessage="Ingrese la marca del vehículo"
+                                 validatorMessage="Ingrese una marca válida"
+                                 class="form-control" html5:placeholder="#{men.marVehEx}"
+                                 html5:required="true" html5:pattern="[A-Za-z]"
+                                 value="#{usuarioSession.marca}">
+                        <f:validateLength minimum="5" maximum="15"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="marca" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.modelo}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="modelo" requiredMessage="Ingrese el número de control de la revisión"
+                                 validatorMessage="Ingrese un número de control válido"
+                                 class="form-control" html5:pattern="[0-9]+"
+                                 html5:placeholder="#{men.modeloEx}"
+                                 html5:required="true" value="#{usuarioSession.modelo}">
+                        <f:validateLength minimum="4" maximum="4"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="modelo" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.dueño}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="dueño" requiredMessage="Ingrese la marca del vehículo"
+                                 validatorMessage="Ingrese una marca válida"
+                                 class="form-control" html5:placeholder="#{men.dueño}"
+                                 html5:pattern="[A-Za-z]"
+                                 html5:required="true" value="#{usuarioSession.dueño}">
+                        <f:validateLength minimum="5" maximum="15"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="dueño" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.plVeh}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="placa" requiredMessage="Ingrese la placa del vehículo"
+                                 validatorMessage="Ingrese una placa válida"
+                                 class="form-control" html5:placeholder="#{men.plVehEx}"
+                                 html5:required="true" value="#{usuarioSession.placa}" >
+                        <f:validateLength minimum="6" maximum="7"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="placa" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.cerTecM}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="tecnomecanica" requiredMessage="Ingrese el número de control de la revisión"
+                                 validatorMessage="Ingrese un número de control válido"
+                                 class="form-control" html5:placeholder="#{men.cerTecMEx}"
+                                 html5:pattern="[0-9]+"
+                                 html5:required="true" value="#{usuarioSession.tecnomecanica}" >
+                        <f:validateLength minimum="8" maximum="8"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="tecnomecanica" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.seguro}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="seguro" requiredMessage="Ingrese el número de control de la revisión"
+                                 validatorMessage="Ingrese un número de control válido"
+                                 class="form-control" html5:placeholder="#{men.actContSecEx}"
+                                 html5:required="true" value="#{usuarioSession.seguro}" >
+                        <f:validateLength minimum="8" maximum="8"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="seguro" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.soat}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="soat" requiredMessage="Ingrese el número de póliza"
+                                 validatorMessage="Ingrese un número de póliza válido"
+                                 class="form-control" html5:placeholder="#{men.soatPEx}"
+                                 html5:required="true" value="#{usuarioSession.soat}" >
+                        <f:validateLength minimum="8" maximum="12"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="soat" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label for="inputName">#{men.tarj}</label>
+                </div>
+                <div class="col-md-4">
+                    <h:inputText id="tarjeton" requiredMessage="Ingrese el número de póliza"
+                                 validatorMessage="Ingrese un número de póliza válido"
+                                 class="form-control" html5:placeholder="#{men.soatPEx}"
+                                 html5:required="true" value="#{usuarioSession.tarjeton}" >
+                        <f:validateLength minimum="8" maximum="12"></f:validateLength>
+                    </h:inputText>
+                    <div>
+                        <h:message for="tarjeton" showSummary="false"
+                                   style="color:#dc3545"></h:message>
+                    </div> 
+                </div>
+            </div>
+            <div class="form-row form-s col-12">
+                <div class="col-md-4">
+                    <label>Conductor</label>
+                </div>
+                <div class="col-md-4">
+                    <h:selectOneMenu styleClass="form-control" value="#{usuarioSession.idUsuario}" >
+                        <f:selectItem itemLabel="#{men.select}" itemValue="0"></f:selectItem>
+                        <f:selectItems value="#{usuarioSession.lstAsigVehi()}" var="con"
+                                       itemLabel="#{con[1]}" itemValue="#{con[0]}"></f:selectItems>
+                    </h:selectOneMenu>
+                </div>
+            </div>
+            <div class="row col-12  justify-content-center">
+                    <h:commandButton html5:type="submit" class="btn btn-s col-3" style="margin-top: 15px;"
+                                     value="#{men.btnEnv}" action="#{usuarioSession.ingresaVehiculoDoc()}"></h:commandButton>
+                
+            </div>
+        </h:form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+
+    </h:body>
+</html>
+

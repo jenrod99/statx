@@ -1,0 +1,208 @@
+/* FUENTES */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+.cont {
+    text-align: center;
+}
+
+.in {
+    padding: 10px;
+    border-left: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+
+/* Borde de las tablas */
+
+.bor {
+    border-right: 1px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.678)
+}
+
+/*Barra de búsqueda*/
+
+.flexsearch--wrapper {
+    height: 100px;
+    max-width: 500px;
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    position: static;
+}
+
+.flexsearch--form {
+    overflow: hidden;
+    position: relative;
+}
+
+.flexsearch--input-wrapper {
+    padding: 0 66px 0 0;
+    overflow: hidden;
+}
+
+.flexsearch--input {
+    width: 100%;
+}
+
+.flexsearch--input {
+    box-sizing: content-box;
+    height: 30px;
+    padding: 3px;
+    border: #233656 solid 1px;
+    margin-top: 30px;
+    color: #333;
+    font-size: 16px;
+}
+
+.flexsearch--submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+    margin-right: 5px;
+    background: transparent;
+    color: #233656;
+    font-size: 30px;
+}
+
+/* buscar */
+h1 {
+    float: left;
+    margin-left: 1em;
+    margin-right: .5em;
+    margin-top: 25px;
+    color: #233656;
+    font-family: 'lato', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 45px;
+    text-align: center;
+}
+
+
+/*Tabla*/
+/*Datos*/
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 5px;
+}
+
+#title3 {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px;
+}
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+/* .table3 {
+        width: 55%;
+        height: 30%;
+        padding: 0px;
+        margin: 100px 20px 0;
+        float: left;
+} */
+
+.table3 tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table3 tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table3 tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table3 tr td a {
+    text-decoration: none;
+    color: #233656;
+}
+
+.table3 tr td a i {
+    margin-left: 20px;
+}
+
+.uno {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.table {
+    width: 99%;
+}
+
+.admon {
+    float: left;
+    /* width: 40%; */
+    /* height: 80%; */
+    text-align: center;
+    padding-top: 1px;
+    /* margin-top: 10px; */
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+.tres {
+    font-size: 110px;
+    color: rgb(188, 196, 195);
+}
+
+#title {
+    font-family: 'Lato', sans-serif;
+    /* margin-top: 100px; */
+    border-radius: 10px 10px 0px 0px;
+    float: center;
+}
+
+.admon ul {
+    /* width: 70%; */
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    border-radius: 30px;
+
+}
+
+.admon ul li {
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+#color-con {
+    background: #FFFD81;
+}
+
+/* responsive design */
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .flexsearch {
+        padding: 0 25px 0 200px;
+        margin-left: 10px;
+    }
+
+    h1 {
+        margin-left: 130px;
+    }
+}
+

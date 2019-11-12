@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" media="all" type="text/css" href="../../css/estilos-conductor/estadisticas.css"/>
+        <link rel="icon" type="img/png" href="../../../img/logo1.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+
+
+        <title>#{men.estd}</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+    </h:head>
+    <h:body>
+        <div id="contenedor-conocer" class="cont">
+            <p>#{men.estd}</p>
+        </div>
+        <!-- Tabla1 -->
+        <div class="table-responsive">
+            <table class="table">
+                <tr class="subtitle">
+                    <td class="in bor bor-arr">#{men.servReal}</td>
+                    <td class="bor bor-arr">######<b></b></td>
+                    <td class="bor bor-arr"><a href="#modal1" data-toggle="modal">#{men.graf}</a></td>
+                </tr>
+                <tr class="subtitle">
+                    <td class="in bor bor-arr">#{men.dinSem}</td>
+                    <td class="bor bor-arr">######</td>
+                    <td class="bor bor-arr"><a href="#modal1" data-toggle="modal">#{men.graf}</a></td>
+                </tr>
+                <tr class="subtitle">
+                    <td class="in bor bor-arr">#{men.dinMen}</td>
+                    <td class="bor bor-arr">######</td>
+                    <td class="bor bor-arr"><a href="#modal1" data-toggle="modal">#{men.graf}</a></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="modal fade" id="modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="borde-caja">#{men.graf}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                            &times;
+                        </button>
+
+                    </div>
+                    <div class="modal-body mt-2">
+                        <div class="table-responsive col-12">
+                            <table class="table2">
+                                <tr class="subtitle">
+                                    <td id="title" class="in bor bor-arr">#{men.mn}</td>
+                                    <td id="title" class="bor bor-arr">#{men.cant}<b></b></td>
+                                </tr>
+                                <tr class="subtitle">
+                                    <td class="in bor bor-arr">Septiembre</td>
+                                    <td class="bor bor-arr">$$$$<b></b></td>
+                                </tr>
+                                <tr class="subtitle">
+                                    <td class="in bor bor-arr">Octubre</td>
+                                    <td class="bor bor-arr">$$$$<b></b></td>
+                                </tr>
+                                <tr class="subtitle">
+                                    <td class="in bor bor-arr">Noviembre</td>
+                                    <td class="bor bor-arr">$$$$<b></b></td>
+                                </tr>
+                                <img id="grafica" src="../../../img/estadisticas.jpg"/>
+                            </table>
+                        </div>
+
+                        <h:form>
+                            <div class="row col-12  justify-content-center">
+                                <h:commandButton html5:type="submit" class="btn btn-s col-3" style="margin-top: 15px;"
+                                                 value="#{men.cant}"></h:commandButton>
+                            </div>
+                        </h:form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <!--Java Script-->
+        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/form-statx-script.js"></script>
+    </h:body>
+</html>
+

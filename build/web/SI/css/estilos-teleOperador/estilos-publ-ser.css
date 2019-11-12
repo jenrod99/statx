@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+#contenedor-publicar {
+    width: 150px;
+    height: 40px;
+    margin-top: 90px;
+    margin-right: 170px;
+    background: #233656;
+    float: right;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+}
+
+.cont {
+    text-align: center;
+}
+
+.in {
+    padding: 10px;
+    border-left: 1px solid rgba(128, 128, 128, 0.678);
+}
+
+
+/* Borde de las tablas */
+
+.bor {
+    border-right: 1px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.678)
+}
+
+#title {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: black;
+}
+
+/* Formulario */
+
+.form-s {
+    margin-top: 10px;
+    padding-top: 2%;
+    color: #233656;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form-se-enc {
+    background-color: #233656;
+    text-align: center;
+    padding: 1%;
+    color: white;
+}
+
+.form-se-enc h5 {
+    margin-bottom: 0px;
+}
+
+.form-se-tit {
+    background-color: #CDD6D5;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.form-se-tit p {
+    margin-bottom: 0px;
+}
+
+.form-s input {
+    color: #233656;
+}
+
+/* Botón enviar */
+
+.btn-s {
+    text-align: center;
+    background-color: rgb(218, 218, 209);
+    border-radius: 30px;
+    border: #233656 solid 2px;
+}
+
+.btn-s:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .table-responsive {
+        overflow-x: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .btnp {
+        width: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-bottom: 1em;
+    }
+
+}

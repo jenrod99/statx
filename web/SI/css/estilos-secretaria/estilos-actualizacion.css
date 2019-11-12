@@ -1,0 +1,140 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Botones navegación */
+
+.enlace {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: inline;
+}
+
+.enlace:hover {
+    background-color: white;
+    color: #233656;
+    transition-duration: 0, 5s;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+
+/* Botones navegación */
+
+.enlace {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: inline;
+}
+
+.enlace:hover {
+    background-color: white;
+    color: #233656;
+    transition-duration: 0,5s;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+
+/* Navegación */
+
+.navegacion {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    float: left;
+}
+
+.navegacion ul {
+    list-style: none;
+    text-align: center;
+    margin: 15px auto;
+    width: 80%;
+
+}
+
+.navegacion ul li {
+    display: inline;
+    align-content: center;
+    padding: 15px 20px 15px;
+    background-color: #233656;
+}
+
+.navegacion ul li:hover {
+    background-color: white;
+}
+
+.navegacion ul li a {
+    text-decoration: none;
+    padding: 15px 20px 15px;
+}
+
+.navegacion ul li a:hover {
+    text-decoration: none;
+}
+
+/* Tabla */
+
+.table1 {
+    width: 70%;
+    margin: auto;
+}
+
+/* Tabla de conductores */
+
+.col-uno {
+    width: 60%;
+}
+
+/*Modal*/
+
+.modal-body{
+    margin-top: 0px;
+}
+/* Formulario */
+
+.form-s {
+    margin-top: 10px;
+    color: #233656;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form-se-enc {
+    background-color: #233656;
+    text-align: center;
+    height: 50px;
+    padding-top: 5px;
+    color: white;
+    margin-bottom: 0px;
+}
+
+.form-s input {
+    color: #233656;
+}
+
+.form-s input {
+    color: #233656;
+}   

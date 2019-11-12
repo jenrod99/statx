@@ -1,0 +1,164 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+    color: #233656;
+}
+
+/* Sección */
+
+.editar {
+    width: 100%;
+    height: 100vh;
+}
+
+.uno {
+    width: 50%;
+    height: 100%;
+    float: left;
+    padding-top: 10px;
+}
+
+/* Títulos */
+
+.en1 {
+    width: 40%;
+    height: 40px;
+    background-color: #233656;
+    margin: 10px auto;
+}
+
+.enlace {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 55px;
+}
+
+/* Cambiar foto */
+
+.img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid #233656;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.usser {
+    font-size: 100px;
+    color: #CDD6D5;
+    float: left;
+}
+
+.cam {
+    margin: 5px;
+    font-size: 25px;
+    color: #233656;
+}
+
+.camera {
+    margin-left: 38%;
+}
+
+/* Datos que se modifican */
+
+.uno a {
+    text-decoration: none;
+    color: #233656;
+}
+
+.uno a i {
+    color: #233656;
+    text-align: center;
+}
+
+.dos {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.en2 {
+    margin-top: 30%;
+}
+
+.no {
+    color: #CDD6D5;
+    border: rgb(136, 141, 140) 1px solid;
+}
+
+#gray {
+    color: #CDD6D5;
+}
+
+/* Lista de datos por editar */
+
+.lista {
+    width: 80%;
+    list-style: none;
+    margin: 15px auto;
+    text-align: right;
+}
+
+.lista li {
+    width: 90%;
+    padding: 10px;
+    border: #233656 solid 1px;
+    margin-bottom: 30px;
+}
+
+.lista li i {
+    color: #233656;
+    font-size: 20px;
+    margin-left: 20%;
+}
+
+.lista li i:hover {
+    color: #CDD6D5;
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .uno,
+    .dos {
+        width: 100%;
+    }
+
+    .editar {
+        height: auto;
+    }
+
+    .en2 {
+        margin-top: 4em;
+    }
+
+    li.lista {
+        text-align: center;
+    }
+
+    .lista>a {
+        float: right;
+    }
+
+    .enlace {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+

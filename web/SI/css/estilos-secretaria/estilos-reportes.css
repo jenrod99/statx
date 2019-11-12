@@ -1,0 +1,133 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Botones navegación */
+
+.enlace {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: inline;
+}
+
+.enlace:hover {
+    background-color: white;
+    color: #233656;
+    transition-duration: 0, 5s;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+
+/* Navegación */
+
+.navegacion {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    float: left;
+}
+
+.navegacion ul {
+    list-style: none;
+    text-align: center;
+    margin: 5px auto;
+    width: 80%;
+
+}
+
+.navegacion ul li {
+    display: inline;
+    align-content: center;
+    padding: 15px 20px 15px;
+    background-color: #233656;
+}
+
+.navegacion ul li:hover {
+    background-color: white;
+}
+
+.navegacion ul li a {
+    text-decoration: none;
+    padding: 15px 20px 15px;
+}
+
+.navegacion ul li a:hover {
+    text-decoration: none;
+}
+
+/* Formulario */
+
+.form-s {
+    margin-top: 10px;
+    color: #233656;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form-se-enc {
+    background-color: #233656;
+    text-align: center;
+    color: white;
+}
+
+.form-se-enc h5{
+    margin-top: 10px;
+    height: 50px;
+    padding: 60px 50px 35px 50px;
+}
+
+.form-check-input {
+    margin-left: 0px;
+}
+.form-check-label {
+    margin-left: 20px;
+}
+
+/* Botón enviar */
+
+.btn-s {
+    text-align: center;
+    background-color: rgb(218, 218, 209);
+    border-radius: 30px;
+    border: #233656 solid 2px;
+}
+
+.btn-s:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .borde-caja {
+        width: auto;
+        margin-left: 1em;
+        margin-right: 1em;
+        text-align: center;
+    }
+    
+    .btn-s {
+        width: auto;
+    }
+}
+
+
+

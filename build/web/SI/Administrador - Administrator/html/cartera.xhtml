@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/estilos-admin/estilos-cartera.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+        <title>Cartera</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+    </h:head>
+    <h:body>
+        <!-- Buscador
+
+        <h1>{men.busc}</h1>
+
+        <div class="flexsearch">
+            <div class="flexsearch-wrapper">doble guión
+                <h:form class="flexsearch-form">doble guión
+                    <div class="flexsearch-input-wrapper">doble guión
+                        <input class="flexsearch-input"  placeholder="{men.buscP}"/>
+                    </div>
+                    <input class="flexsearch-submit" /> doble guión
+                </h:form>
+            </div>
+        </div>-->
+
+        <!-- Tabla -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-5 pt-5">
+                    <div class="table-responsive">
+                        <table class="table table3">
+                            <tr>
+                                <th id="title3" class="borde">N°</th>
+                                <th id="title3" class="borde">#{men.nomAp}</th>
+                                <th id="title3" class="borde">#{men.cu}</th>
+                                <th id="title3" class="borde">#{men.deEs}</th>
+                                <th id="title3" class="borde">#{men.deFe}</th>
+
+                            </tr>
+                            <h:form>
+                                <c:forEach items="#{usuarioSession.lstCuotaf()}" varStatus="paso" var="con">
+                                    <tr>
+                                        <td>#{paso.index+1}</td>
+                                        <td>#{con[0]}</td>
+                                        <td>#{con[1]}</td>
+                                        <td>#{men.pen}</td>
+                                        <td>$#{con[2]}</td>
+                                    </tr>
+                                </c:forEach>
+                            </h:form>  
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+

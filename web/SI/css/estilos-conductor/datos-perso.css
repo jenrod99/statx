@@ -1,0 +1,93 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* General */
+
+* {
+    box-sizing: border-box;
+    margin: 0px 0px 5px 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: none;
+}
+
+/* Formulario */
+
+.form-s {
+    margin-top: 10px;
+    padding-top: 2%;
+    color: #233656;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form-se-enc {
+    background-color: #233656;
+    text-align: center;
+    padding: 1%;
+    color: white;
+}
+
+.form-se-enc h5 {
+    margin-bottom: 0px;
+}
+
+.form-se-tit {
+    background-color: #CDD6D5;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.form-se-tit p {
+    margin-bottom: 0px;
+}
+
+.form-s label {
+    color: #233656;
+}
+
+.form-s input {
+    color: #233656;
+}
+
+.btn-s {
+    text-align: center;
+    background-color: rgb(218, 218, 209);
+    border-radius: 30px;
+    border: #233656 solid 2px;
+}
+
+.btn-s:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .table-responsive {
+        overflow-x: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .table-responsive>.table {
+        width: 100%;
+    }
+
+    #contenedor-modificarD,
+    .btng {
+        width: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-right: 1em;
+        margin: 1em;
+    }
+
+}
+
+

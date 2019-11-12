@@ -1,0 +1,349 @@
+* {
+	/* box-sizing: border-box; */
+	margin: 0;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+/* Fuente */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* Botones */
+
+nav.nav-s {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar-expand-lg .navbar-nav .btn-s {
+	font-weight: 800;
+	font-size: 15px;
+	border: solid 1px #FFFD81;
+	text-align: center;
+	padding: 20px 80px;
+	display: inline;
+	color: white;
+}
+
+.navbar-expand-lg .navbar-nav .btn-s:hover {
+	color: black;
+}
+
+.btn-s img {
+	margin-left: 6px;
+}
+
+.btn-s:hover {
+	background-color: #FFFD81;
+	color: black;
+	text-decoration: none;
+}
+
+
+/* Contenedor de secciones*/
+
+.contenedor {
+	width: 80%;
+	height: 100vh;
+	margin: auto;
+}
+
+/* Inicio */
+
+.inicio {
+	width: 100%;
+	background-image: url(../img/fondo-index2.jpg);
+	background-attachment: fixed;
+	background-size: 100%;
+}
+
+.cont-1 {
+	padding-top: 6%;
+}
+
+/* Texto bienvenida al sistema */
+
+.in-txt {
+	padding-top: 3%;
+	color: white;
+}
+
+.p-txt {
+	padding-top: 10%;
+}
+
+/* Introducción e ingreso al sistema */
+
+/* Formulario */
+
+.form-s {
+	background: rgba(246, 246, 246, 0.541);
+    padding-left: 0px;
+    padding-right: 0px;
+	text-align: center;
+	margin: auto;
+}
+
+.form-s-enc {
+	padding: 10px;
+	background-color: rgba(255, 253, 129, 0.822);
+	color: #000;
+}
+
+.form-s-cuerpo input {
+	padding: 3% 15%;
+	background-color: rgba(255, 255, 255, 0.637);
+	text-align: center;
+	border: 1px solid #fff;
+	color: #fff;
+	margin: 15px auto 0px auto;
+}
+
+.btn-form-s {
+	padding: 3% 5px;
+	font-size: 15px;
+	background-color: rgba(148, 147, 147, 0.2);
+	color: #fff;
+	border: 1px solid #fff;
+	margin-bottom: 2%;
+}
+
+.btn-form-s:hover {
+	background: rgba(49, 48, 48, 0.445);
+}
+
+/* Ingreso a roles */
+
+.btn-s-rol {
+	padding: 10px 20px;
+	border: 1px solid #FFFD81;
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+	margin-right: 1%;
+}
+
+.btn-s-rol:hover {
+	background-color: #FFFD81;
+	color: #000;
+	transition-duration: 0, 5s;
+	text-decoration: none;
+}
+
+/* Quienes somos */
+
+.historia-s {
+	width: 100%;
+	/* height: 100vh; */
+	background-image: url(../img/fondo-sec2.jpg);
+	background-attachment: fixed;
+	background-size: 100%;
+	/* padding-top: 70px; */
+}
+
+.his {
+	color: #ffff;
+	text-align: end;
+}
+
+
+.his-txt-2 {
+	padding-bottom: 10%;
+}
+
+.mis {
+	color: #ffff;
+	text-align: start;
+}
+
+/* Sección 2 de quienes somos */
+
+.contenedor1 {
+	width: 80%;
+	height: 100vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mision {
+	width: 100%;
+	height: 100vh;
+	margin-top: 2%;
+}
+
+.mision h1 {
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+#prin {
+	margin-left: 1%;
+}
+
+.izq-uno {
+	width: 33.33%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.txt1 {
+	color: white;
+	margin-bottom: 10px;
+}
+
+.txt1 ul {
+	margin: 10px 25px;
+}
+
+
+/* Contáctenos */
+
+.contactenos {
+	width: 100%;
+	background-image: url(../img/fondo-sec3.jpg);
+	background-attachment: fixed;
+	background-size: 100%;
+}
+
+/* Formulario de envío */
+
+.form-s-2 {
+	width: 100%;
+	background: rgba(225, 225, 225, 0);
+	margin-top: 4%;
+}
+
+.form-s-2-enc {
+	margin-bottom: 20px;
+	text-align: center;
+	background-color: rgba(255, 253, 129, 0.836);
+}
+
+.form-s-2-cuerpo input {
+	background-color: rgba(255, 255, 255, 0.76);
+	border: 1px solid rgb(255, 255, 255);
+	margin: 0% auto;
+}
+
+.form-s-2-fin {
+	margin-bottom: 20px;
+}
+
+.btn-s-form-2 {
+	background-color: rgb(255, 253, 129);
+	border: 1px solid #FFFD81;
+	padding: 15px 25px;
+	color: black;
+}
+
+.btn-s-form-2:hover {
+	background-color: rgba(255, 253, 129, 0.842);
+	color: #000;
+	text-decoration: none;
+}
+
+.art-uno {
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	background-color: rgba(255, 253, 129, 0.836);
+	color: #000;
+}
+
+.art-uno p {
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+
+.art-dos {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.art-dos p {
+	font-size: 18px;
+}
+
+.txt1 h1 {
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 991px and less) */
+@media (max-width: 991px) {
+
+	.navbar-collapse {
+		margin-top: 1em;
+	}
+
+	.in-txt {
+		padding: 0;
+		margin: 0;
+		height: auto;
+		margin-bottom: 1em;
+	}
+
+	.p-txt {
+		padding: 0;
+		margin-top: 4em;
+		text-align: center;
+	}
+
+	.btn-s-rol {
+		text-align: center;
+		margin-bottom: .5em;
+	}
+
+	.mis-txt {
+		margin:  1em;
+	}
+
+	.btn-s-form-2 {
+		margin-bottom: 1em;
+	}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) {...} */
+
+/* Medium devices (tablets, 768px and up) */
+/* @media (min-width: 768px) {...} */
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.inicio {
+		height: 100vh;
+	}
+
+	.in-txt {
+		height: 70vh;
+	}
+
+	.historia-s {
+		height: 100vh;
+		padding-top: 70px;
+	}
+
+	.his-txt {
+		margin-top: 9%;
+	}
+
+	.mis-txt {
+		margin: 6% 1%;
+		line-height: 130%;
+	}
+
+	.contactenos {
+		height: 100vh;
+		padding-top: 10%;
+	}
+}
+/* Extra large devices (large desktops, TVs 1200px and up) */
+/* @media (min-width: 1200px) {...} */

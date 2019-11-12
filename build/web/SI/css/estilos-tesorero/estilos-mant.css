@@ -1,0 +1,205 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+.flexsearch--wrapper {
+    height: 100px;
+    width: 500px;
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    position: static;
+}
+    
+.flexsearch--form {
+    overflow: hidden;
+    position: relative;
+}
+    
+.flexsearch--input-wrapper {
+    padding: 0 66px 0 0; 
+    overflow: hidden;
+}
+
+.flexsearch--input {
+  width: 100%;
+}
+
+.flexsearch {
+  padding: 0 25px 0 200px;
+  margin-left: 10px;
+}
+
+.flexsearch--input {
+    box-sizing: content-box;
+    height: 30px;
+    padding: 3px;
+    border: #233656 solid 1px;
+    margin-top: 30px;
+    color: #333;
+    font-size: 16px;
+}
+    
+.flexsearch--submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    margin-top: 20px;
+
+    margin-right: 5px; 
+    background: transparent;
+    color: #233656;
+    font-size: 30px;
+}
+
+/* buscar */
+h1 {
+  float: left;
+  margin-left: 130px;
+  margin-top: 25px;
+  color: #233656;
+  font-family: 'lato', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 45px;
+  text-align: center;
+}
+#dia-actual{
+    width: 20%;
+    height: 40px;
+    float: left;
+    padding: 7px  10px 10px 20px;
+    background:#FFFD81;
+    border-color: #FFFD81;
+    margin: 20px;
+    color:  #233656;
+}
+
+/* Tabla de Cuota */
+
+/* Título de tabla */
+
+#title {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px; 
+}
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+.table {
+    width: 80%;
+    height: 50%;
+    padding: 0px;
+    margin: 50px 20px;
+    text-align: center;
+
+}
+
+.table tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table tr td a {
+    text-decoration: none;
+    color: #233656;
+} 
+
+.table tr td a i {
+    margin-left: 20px;
+} 
+/* Botones */
+
+.btn {
+    text-align: center;
+    background-color: rgb(194, 194, 186);
+    border-radius: 30px;
+    width: 10%;
+    height: 30px;
+    border: #233656 solid 2px;
+    padding-top: 2px;
+    float: right;
+}
+
+.btn:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.btn a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .table-responsive {
+        overflow-x: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .btn {
+        width: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-bottom: 1em;
+        margin-right: 1em;
+    }
+
+    h1 {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .flexsearch,
+    .flexsearch--wrapper {
+        width: auto;
+        padding-left: 0;
+    }
+
+    #dia-actual {
+        width: auto;
+    }
+
+    .table {
+        margin-top: 1em;
+    }
+
+}
+

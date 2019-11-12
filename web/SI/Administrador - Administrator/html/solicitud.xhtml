@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/estilos-admin/estilos-solicitud.css"/>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <title>#{men.solt}</title>
+        <f:loadBundle var="men" basename="././edu.statx.properties.#{idiomaSession.idioma == null ? 'espaniol':idiomaSession.idioma}"></f:loadBundle>
+    </h:head>
+    <h:body>
+
+        <section>
+
+
+            <table class="table col-md-10 mt-5 cont" style="align-content: center;">
+                <tr>
+                    <td id="title" class="borde" colspan="4">#{men.apl}</td>
+                </tr>
+                <tr class="subtitle">
+                    <td class="in bor"><b>#{men.numSol}</b></td>
+                    <td class="in bor"><b>#{men.aplN}</b></td>
+                    <td class="bor"><b>#{men.aplD}</b></td>
+                    <td class="bor"><b>#{men.aplNL}</b></td>
+                </tr>
+                <c:forEach var="sol" items="#{usuarioSession.lstSolEmPen()}" varStatus="paso">
+                    <tr>
+                        <td class="in bor">#{paso.index+1}</td>
+                        <td class="in bor">#{sol[0]}</td>
+                        <td class="bor">#{sol[1]}</td>
+                        <td class="bor"><a href="#modalSol#{paso.index+1}" data-toggle="modal"
+                                           class="enlace">#{sol[2]}<i
+                                    class="fas fa-search"></i></a>
+                        </td>
+                    </tr> 
+                </c:forEach>
+
+            </table>
+            <c:forEach var="solM" items="#{usuarioSession.lstSolEmPen()}" varStatus="paso">
+                <div class="modal fade" id="modalSol#{paso.index+1}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="borde-caja col-10">#{men.aplMs} #{paso.index+1}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="table-responsive">
+                                    <table class="table2" >
+                                        <tr>
+                                            <td id="title" class="bor" colspan="3">#{men.aplMs} #{paso.index+1}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bor  in">#{men.aplMN}</td>
+                                            <td class="bor ">#{solM[3]}</td>
+                                            <td class="bor cont"><a href="#" class="enlace"/>#{solM[4]}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bor in">#{men.aplML}</td>
+                                            <td class="bor">#{solM[5]}</td>
+                                            <td class="bor cont"><a href="#" class="enlace"/>#{solM[6]}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bor in">#{men.aplMIdT}</td>
+                                            <td class="bor cont" colspan="3">C.C</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="bor in">#{men.aplMIdI}</td>
+                                            <td class="bor cont" colspan="3">#{solM[7]}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bor in">#{men.aplMLict}</td>
+                                            <td class="bor cont" colspan="3">#{solM[8]}</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <h:form>
+                                <div class="form-row form-s col-12">
+                                    <div class="col-md-4">
+                                        <label for="inputName">#{men.aplOb}</label>
+                                    </div>
+                                    <h:inputTextarea id="observaciones" requiredMessage="Ingrese las observaciones necesarias"
+                                                     validatorMessage="Ingrese observación. Mínimo 10 carácteres."
+                                                     class="form-control col-md-8" html5:placeholder="#{men.aplOb}"
+                                                     html5:required="true">
+                                        <f:validateLength minimum="10" maximum="500"></f:validateLength>
+                                    </h:inputTextarea>
+                                    <div>
+                                        <h:message for="observaciones" showSummary="false"
+                                                   style="color:#dc3545;"></h:message>
+                                    </div> 
+                                </div>
+
+                                <div class="col-12 d-flex justify-content-end">
+                                    <div class="col-3">
+                                        <h:commandButton html5:type="submit" class="btn btn-s col-12"
+                                                         value="#{men.aplBtnDen}" action="#{usuarioSession.cambioSolEsDen(solM[0])}"></h:commandButton>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <h:commandButton  class="btn btn-s col-12" value="#{men.aplBtnAc}"  action="#{usuarioSession.cambioSol(solM[0])}"></h:commandButton>
+                                    </div>
+                                </div>
+                            </h:form>   
+                        </div>
+
+
+                    </div>
+                </div>
+            </c:forEach>
+
+            <!-- Tabla de informacion solicitud -->
+
+
+
+        </section>
+        <!--Java Script-->
+        <script type="text/javascript">       
+           function ValidarUsuOK() {
+                Swal.fire(
+                        '#{men.mailPass} ' ,
+                        '#{men.noVal}',
+                        'error'
+                        )
+            }
+                        
+             function confirmarCambioEstado() {
+                 
+                swalWithBootstrapButtons.fire({
+                    title: '{men.sure}',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: '#{men.reject}',
+                    cancelButtonText: '#{men.cancel}',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.value) {
+                        swalWithBootstrapButtons.fire(
+                                '#{men.del}',
+                                'success'
+                                )
+                    } else if (
+                            /* Read more about handling dismissals below */
+                            result.dismiss === Swal.DismissReason.cancel
+                            ) {
+                        swalWithBootstrapButtons.fire(
+                                '#{men.canTit}',
+                                '#{men.can}',
+                                'error'
+                                )
+                    }
+                })
+            }
+        
+       
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+           
+        </script>
+        <!--
+        
+        -->
+        <script src="../../../js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../js/popper.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/form-statx-script.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,168 @@
+/* FUENTES */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Borde */
+
+.borde {
+    border: 1px solid gray;
+}
+
+.borde-caja{
+    width: 40%;
+    height: 40px;
+    padding: 7px  10px 10px 20px;
+    background:#FFFD81;
+    border-color: #FFFD81;
+    margin: 20px;
+    color:  #233656;
+    text-align: justify;
+}
+
+/* Tabla de Cuota */
+
+/* Título de tabla */
+
+#title {
+    font-family: 'Lato', sans-serif;
+    background-color: #233656;
+    color: white;
+    padding: 10px; 
+}
+
+.subtitle {
+    background-color: #CDD6D5;
+    text-align: center;
+    color: black;
+}
+
+.table {
+    width: 95%;
+    height: 30%;
+    padding: 0px;
+    margin: 25px 20px;
+    text-align: center;
+
+}
+
+.table tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.table tr:hover {
+    background-color: rgba(205, 214, 213, 0.541);
+}
+
+.table tr td {
+    padding: 10px;
+    color: #233656;
+}
+
+.table tr td a {
+    text-decoration: none;
+    color: #233656;
+} 
+
+.table tr td a i {
+    margin-left: 20px;
+} 
+/* Título de la tabla */
+
+.uno {
+    background-color: #233656;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+.cont {
+    text-align: center;
+}
+
+/* Datos que solicita la tabla */
+
+.in {
+    padding: 10px;
+    border-left: 1px solid rgba(128, 128, 128, 0.678); 
+}
+
+
+/* Borde de las tablas */
+
+.bor {
+    border-right: 1px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.678)
+}
+/* Botones */
+
+.btn {
+    text-align: center;
+    background-color: rgb(194, 194, 186);
+    border-radius: 30px;
+    width: 10%;
+    height: 30px;
+    border: #233656 solid 2px;
+    padding-top: 2px;
+    float: right;
+}
+
+.btn:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.btn a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+/* responsive design */
+
+/* Small devices only cell phones and tablets (horizontal phones, 767px and less) */
+@media (max-width: 767px) {
+    .table-responsive {
+        overflow-x: auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .btn {
+        width: auto;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-bottom: 1em;
+        margin-right: 1em;
+    }
+
+    h1 {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .flexsearch,
+    .flexsearch--wrapper {
+        width: auto;
+        padding-left: 0;
+    }
+
+    .borde-caja {
+        width: auto;
+    }
+
+    .table {
+        margin: 0;
+    }
+
+}
+

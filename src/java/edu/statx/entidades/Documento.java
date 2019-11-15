@@ -7,7 +7,6 @@ package edu.statx.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,20 +20,14 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author X Force
+ * @author Windows
  */
 @Entity
 @Table(name = "documento")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Documento.findAll", query = "SELECT d FROM Documento d")})
 public class Documento implements Serializable {
@@ -45,11 +38,6 @@ public class Documento implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_documento")
     private Integer idDocumento;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "fecha_documento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaDocumento;
     @Lob
     @Column(name = "tarjeta_propiedad")
     private byte[] tarjetaPropiedad;
@@ -74,25 +62,12 @@ public class Documento implements Serializable {
         this.idDocumento = idDocumento;
     }
 
-    public Documento(Integer idDocumento, Date fechaDocumento) {
-        this.idDocumento = idDocumento;
-        this.fechaDocumento = fechaDocumento;
-    }
-
     public Integer getIdDocumento() {
         return idDocumento;
     }
 
     public void setIdDocumento(Integer idDocumento) {
         this.idDocumento = idDocumento;
-    }
-
-    public Date getFechaDocumento() {
-        return fechaDocumento;
-    }
-
-    public void setFechaDocumento(Date fechaDocumento) {
-        this.fechaDocumento = fechaDocumento;
     }
 
     public byte[] getTarjetaPropiedad() {
@@ -135,7 +110,6 @@ public class Documento implements Serializable {
         this.tarjeton = tarjeton;
     }
 
-    @XmlTransient
     public Collection<Vehiculo> getVehiculoCollection() {
         return vehiculoCollection;
     }

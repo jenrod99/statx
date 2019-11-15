@@ -21,16 +21,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author X Force
+ * @author Windows
  */
 @Entity
 @Table(name = "vehiculo")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Vehiculo.findAll", query = "SELECT v FROM Vehiculo v")})
 public class Vehiculo implements Serializable {
@@ -39,7 +36,7 @@ public class Vehiculo implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
+    @Size(min = 1, max = 6)
     @Column(name = "placa")
     private String placa;
     @Size(max = 45)
@@ -101,7 +98,6 @@ public class Vehiculo implements Serializable {
         this.marca = marca;
     }
 
-    @XmlTransient
     public Collection<Servicio> getServicioCollection() {
         return servicioCollection;
     }
@@ -110,7 +106,6 @@ public class Vehiculo implements Serializable {
         this.servicioCollection = servicioCollection;
     }
 
-    @XmlTransient
     public Collection<Mantenimiento> getMantenimientoCollection() {
         return mantenimientoCollection;
     }

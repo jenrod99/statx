@@ -21,7 +21,7 @@
     <h:body>
 
         <!-- Navegación -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0 d-flex justify-content-between">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0 d-flex justify-content-between">
             <div id="inicio" class="logo">
                 <a href="../../index.xhtml" target="_blank"><img src="../../img/logo1.png"/></a>
             </div>
@@ -30,25 +30,27 @@
                 <div class="notifications">
                     <div class="dropdown mr-4">
                         <div class="notification-container">
-                            <a class="notification-button" id="notificationList"
-                               role="button" aria-haspopup="true"
-                               data-toggle="dropdown" aria-expanded="false"
-                               href="#">
-
-                                <span class="fas fa-bell notification-icon "></span>
-                                <span class="badge badge-danger notification-badge">4</span>
-                            </a> 
-
+                                    <a class="notification-button" id="notificationList"
+                                       role="button" aria-haspopup="true"
+                                       data-toggle="dropdown" aria-expanded="false"
+                                       href="#">
+                                        <span class="fas fa-bell notification-icon "></span>  
+                                        <span class="badge badge-danger notification-badge">#{usuarioSession.listaNotificaciones()}</span>
+                                    </a>    
                             <div >
                                 <ul class="dropdown-menu" aria-labelledby="notificationList">
-                                    <li class="dropdown-item">Notificacion 1</li>
-                                    <li class="dropdown-item">Notificacion 2</li>
-                                    <li class="dropdown-item">Notificacion 3</li>
-
+                                    <c:forEach items="#{usuarioSession.listaNotificacion()}" var="nb">
+                                        <li class="dropdown-item">
+                                            <!--Nombre del remitente -->
+                                            <h6>#{nb[1]}</h6>
+                                            <!-- Mesanje -->
+                                            <p>#{nb[2]}</p>
+                                        </li>
+                                    </c:forEach>    
                                 </ul>
 
                             </div>
-                        </div>
+                            </div>
                     </div>
 
                 </div>
@@ -76,7 +78,6 @@
                 </div>
             </div>
         </nav>
-
 
         <!-- Opciones lateral -->
 

@@ -22,15 +22,13 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author X Force
+ * @author Windows
  */
 @Entity
 @Table(name = "cuota")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cuota.findAll", query = "SELECT c FROM Cuota c")})
 public class Cuota implements Serializable {

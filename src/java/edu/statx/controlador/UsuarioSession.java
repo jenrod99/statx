@@ -7,6 +7,7 @@ package edu.statx.controlador;
 
 import edu.statx.entidades.Cuota;
 import edu.statx.entidades.Documento;
+import edu.statx.entidades.Notificacion;
 import edu.statx.entidades.Rol;
 import edu.statx.entidades.Servicio;
 import edu.statx.entidades.Usuario;
@@ -16,6 +17,7 @@ import edu.statx.facade.CuotaFacadeLocal;
 import edu.statx.facade.UsuarioFacadeLocal;
 import edu.statx.facade.VehiculoFacadeLocal;
 import edu.statx.facade.DocumentoFacadeLocal;
+import edu.statx.facade.NotificacionFacadeLocal;
 import edu.statx.facade.ServicioFacadeLocal;
 import edu.statx.facade.SolicitudEmpleoFacadeLocal;
 import java.io.IOException;
@@ -50,6 +52,8 @@ public class UsuarioSession implements Serializable {
     SolicitudEmpleoFacadeLocal sefl;
     @EJB
     MantenimientoFacadeLocal man1;
+    @EJB
+    NotificacionFacadeLocal nfl;
     
     
     
@@ -537,7 +541,20 @@ public class UsuarioSession implements Serializable {
             return null;
         }
     }
-
+    public List<Notificacion> listaNotificacion() {
+        try {
+            return nfl.listaNotificaciones(usuarioLog.getIdUsuario());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    public List<Notificacion> listaNotificaciones() {
+        try {
+            return nfl.listaNotificacion(usuarioLog.getIdUsuario());
+        } catch (Exception e) {
+            return null;
+        }
+    }
     public List<Object> lstServicioPerDia() {
         try {
             return sfl.lstServicioperdia();

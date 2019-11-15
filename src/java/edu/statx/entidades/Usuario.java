@@ -22,16 +22,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author X Force
+ * @author Windows
  */
 @Entity
 @Table(name = "usuario")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
 public class Usuario implements Serializable {
@@ -79,12 +76,11 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "correo")
     private String correo;
-    @Size(max = 45)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "direccion")
     private String direccion;
-    @Size(max = 11)
-    @Column(name = "numero_licencia")
-    private String numeroLicencia;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -93,14 +89,23 @@ public class Usuario implements Serializable {
     @Size(max = 45)
     @Column(name = "estado")
     private String estado;
-    @Size(max = 15)
-    @Column(name = "tipo_usu")
-    private String tipoUsu;
-    @Size(max = 15)
-    @Column(name = "tipo_afiliacion")
-    private String tipoAfiliacion;
     @Column(name = "tipoIdentificacion")
     private Boolean tipoIdentificacion;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 15)
+    @Column(name = "tipo_usu")
+    private String tipoUsu;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 11)
+    @Column(name = "numero_licencia")
+    private String numeroLicencia;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 15)
+    @Column(name = "tipo_afiliacion")
+    private String tipoAfiliacion;
     @ManyToMany(mappedBy = "usuarioCollection", fetch = FetchType.LAZY)
     private Collection<Rol> rolCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario", fetch = FetchType.LAZY)
@@ -111,6 +116,10 @@ public class Usuario implements Serializable {
     private Collection<SolicitudEmpleo> solicitudEmpleoCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario", fetch = FetchType.LAZY)
     private Collection<Vehiculo> vehiculoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario", fetch = FetchType.LAZY)
+    private Collection<Notificacion> notificacionCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuarioReceptor", fetch = FetchType.LAZY)
+    private Collection<Notificacion> notificacionCollection1;
 
     public Usuario() {
     }
@@ -119,7 +128,7 @@ public class Usuario implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(Integer idUsuario, String primerNombre, String primerApellido, int numeroIdentificacion, int telefono, String numeroCelular, String correo, String contrasenia) {
+    public Usuario(Integer idUsuario, String primerNombre, String primerApellido, int numeroIdentificacion, int telefono, String numeroCelular, String correo, String direccion, String contrasenia, String tipoUsu, String numeroLicencia, String tipoAfiliacion) {
         this.idUsuario = idUsuario;
         this.primerNombre = primerNombre;
         this.primerApellido = primerApellido;
@@ -127,7 +136,11 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
         this.numeroCelular = numeroCelular;
         this.correo = correo;
+        this.direccion = direccion;
         this.contrasenia = contrasenia;
+        this.tipoUsu = tipoUsu;
+        this.numeroLicencia = numeroLicencia;
+        this.tipoAfiliacion = tipoAfiliacion;
     }
 
     public Integer getIdUsuario() {
@@ -218,14 +231,6 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
     }
 
-    public String getNumeroLicencia() {
-        return numeroLicencia;
-    }
-
-    public void setNumeroLicencia(String numeroLicencia) {
-        this.numeroLicencia = numeroLicencia;
-    }
-
     public String getContrasenia() {
         return contrasenia;
     }
@@ -242,12 +247,28 @@ public class Usuario implements Serializable {
         this.estado = estado;
     }
 
+    public Boolean getTipoIdentificacion() {
+        return tipoIdentificacion;
+    }
+
+    public void setTipoIdentificacion(Boolean tipoIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
+    }
+
     public String getTipoUsu() {
         return tipoUsu;
     }
 
     public void setTipoUsu(String tipoUsu) {
         this.tipoUsu = tipoUsu;
+    }
+
+    public String getNumeroLicencia() {
+        return numeroLicencia;
+    }
+
+    public void setNumeroLicencia(String numeroLicencia) {
+        this.numeroLicencia = numeroLicencia;
     }
 
     public String getTipoAfiliacion() {
@@ -258,15 +279,6 @@ public class Usuario implements Serializable {
         this.tipoAfiliacion = tipoAfiliacion;
     }
 
-    public Boolean getTipoIdentificacion() {
-        return tipoIdentificacion;
-    }
-
-    public void setTipoIdentificacion(Boolean tipoIdentificacion) {
-        this.tipoIdentificacion = tipoIdentificacion;
-    }
-
-    @XmlTransient
     public Collection<Rol> getRolCollection() {
         return rolCollection;
     }
@@ -275,7 +287,6 @@ public class Usuario implements Serializable {
         this.rolCollection = rolCollection;
     }
 
-    @XmlTransient
     public Collection<Cuota> getCuotaCollection() {
         return cuotaCollection;
     }
@@ -284,7 +295,6 @@ public class Usuario implements Serializable {
         this.cuotaCollection = cuotaCollection;
     }
 
-    @XmlTransient
     public Collection<Cuota> getCuotaCollection1() {
         return cuotaCollection1;
     }
@@ -293,7 +303,6 @@ public class Usuario implements Serializable {
         this.cuotaCollection1 = cuotaCollection1;
     }
 
-    @XmlTransient
     public Collection<SolicitudEmpleo> getSolicitudEmpleoCollection() {
         return solicitudEmpleoCollection;
     }
@@ -302,13 +311,28 @@ public class Usuario implements Serializable {
         this.solicitudEmpleoCollection = solicitudEmpleoCollection;
     }
 
-    @XmlTransient
     public Collection<Vehiculo> getVehiculoCollection() {
         return vehiculoCollection;
     }
 
     public void setVehiculoCollection(Collection<Vehiculo> vehiculoCollection) {
         this.vehiculoCollection = vehiculoCollection;
+    }
+
+    public Collection<Notificacion> getNotificacionCollection() {
+        return notificacionCollection;
+    }
+
+    public void setNotificacionCollection(Collection<Notificacion> notificacionCollection) {
+        this.notificacionCollection = notificacionCollection;
+    }
+
+    public Collection<Notificacion> getNotificacionCollection1() {
+        return notificacionCollection1;
+    }
+
+    public void setNotificacionCollection1(Collection<Notificacion> notificacionCollection1) {
+        this.notificacionCollection1 = notificacionCollection1;
     }
 
     @Override

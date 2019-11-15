@@ -342,8 +342,7 @@ public class UsuarioSession implements Serializable {
             usuario.setNumeroIdentificacion(numero_identificacion);
             usuario.setTelefono(telefono);
             usuario.setNumeroCelular(numero_celular);
-            usuario.setNumeroLicencia(numero_celular);
-            usuario.setNumeroLicencia(numnero_licencia);
+            usuario.setNumeroLicencia(licencia);
             usuario.setDireccion(direccion);
             usuario.setCorreo(correo);
             usuario.setTipoUsu(tipo_usu);
@@ -361,6 +360,32 @@ public class UsuarioSession implements Serializable {
         }
 
     }
+    
+    public String crearJefeTeleOperador () {
+        try {
+            this.tipo_usu = "Jefe de Planta";
+            Usuario usuario = new Usuario();
+            usuario.setPrimerNombre(primer_nombre);
+            usuario.setSegundoNombre(segundo_nombre);
+            usuario.setPrimerApellido(primer_apellido);
+            usuario.setSegundoApellido(segundo_apellido);
+            usuario.setNumeroIdentificacion(numero_identificacion);
+            usuario.setTelefono(telefono);
+            usuario.setNumeroCelular(numero_celular);
+            usuario.setDireccion(direccion);
+            usuario.setCorreo(correo);
+            usuario.setTipoUsu(tipo_usu);
+            usuario.setContrasenia(usuario.getPrimerNombre() + usuario.getNumeroIdentificacion());
+            
+            usuarioFacadeLocal.crearTeleOperador(usuario);
+
+            return "";
+        } catch (Exception e) {
+            return "SI/Administrador-Administrator/usuarios.xhtml";
+        }
+    
+    }
+    
     public  void cambioUsuEs(int idUsu){
         try {
             usuarioFacadeLocal.CambioEstadoSol(idUsu);

@@ -52,4 +52,6 @@ public interface UsuarioFacadeLocal {
     public List<Object> listaTesoreros();
 
     public boolean cambiarContrasenia(String newContrasenia, int idUsu);
+
+    public boolean crearTeleOperador(Usuario usuario);
    }

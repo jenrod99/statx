@@ -88,6 +88,32 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         }
 
     }
+    
+    @Override
+    public boolean crearTeleOperador (Usuario usuario) {
+        try {
+            Query qTO = em.createNativeQuery("INSERT INTO `usuario` (`primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `numero_identificacion`, `telefono`, `numero_celular`, `correo`, `direccion`, `contrasenia`, `tipo_usu`, `estado`) VALUES (?, ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?);");
+            qTO.setParameter(1, usuario.getPrimerNombre());
+            qTO.setParameter(2, usuario.getSegundoNombre());
+            qTO.setParameter(3, usuario.getPrimerApellido());
+            qTO.setParameter(4, usuario.getSegundoApellido());
+            qTO.setParameter(5, usuario.getNumeroIdentificacion());
+            qTO.setParameter(6, usuario.getTelefono());
+            qTO.setParameter(7, usuario.getNumeroCelular());
+            qTO.setParameter(8, usuario.getCorreo());
+            qTO.setParameter(9, usuario.getDireccion());
+            qTO.setParameter(10, usuario.getContrasenia());
+            qTO.setParameter(11, usuario.getTipoUsu());
+            qTO.setParameter(12, "Activo");
+            
+            qTO.executeUpdate();
+            
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    
+    }
 
     @Override
     public Usuario buscarPorCorreo(String correo) {

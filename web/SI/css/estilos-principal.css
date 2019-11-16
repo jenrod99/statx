@@ -23,8 +23,9 @@ and open the template in the editor.
 
 body {
     background-image: url(../../img/fondo2.jpg);
-    background-size: 100%;
     background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* Logo */
@@ -97,6 +98,24 @@ body {
 /* Navegación */
 nav {
     background-color: #CDD6D5;
+}
+
+.acciones {
+   width: 100% !important;
+   margin: 0 !important;
+}
+
+.form-create-enc {
+    background-color: #EFF1F1;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #233656;
+}
+
+.form-create-enc h5 {
+    margin-bottom: 0;
 }
 
 /* Notificaciones */
@@ -194,6 +213,26 @@ nav {
     width: 100%;
     height: 100vh;
     padding-top: 5em;
+}
+/* Botón statx*/
+
+.btn-statx{
+    background-color: #233656;
+    color: white !important;
+    border: none;
+    padding: .375rem 3rem;
+    border-radius: 0;
+}
+
+.btn-statx:hover{
+    cursor: pointer;
+    background-color: rgba(218, 218, 209, 0.4);
+    color: #233656 !important;
+    border: 0.5px solid #233656;
+}
+
+.btn-statx a:hover {
+    color: #233656;
 }
 
 /* Botón enviar */

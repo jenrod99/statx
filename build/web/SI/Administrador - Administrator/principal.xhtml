@@ -102,8 +102,18 @@
                     <li class="menu-item"><a href="html/solicitud.xhtml" target="principal" class="btn menu-item-a">#{men.solEmp}</a></li>
                     <li class="menu-item"><a href="html/conductor.xhtml" target="principal" class="btn menu-item-a">#{men.inf}</a></li>
                     <li class="menu-item"><a href="html/cartera.xhtml" target="principal" class="btn menu-item-a">#{men.car}</a></li>
-                    <li class="menu-item"><a href="html/usuariosAdmin.xhtml" target="principal" class="btn menu-item-a">#{men.us}</a>
+                    <li class="menu-item"><a class="btn menu-item-a" data-toggle="collapse" href="#acciones" role="button" aria-expanded="false">#{men.us}</a>
+                 
                     </li>
+                           <div class="collapse" id="acciones">
+                        <ul class="acciones">
+                            <li><a href="html/crearUsuariosAdmin.xhtml" target="principal" class="btn menu-item-a">#{men.cre}</a></li>
+                            <li><a href="html/verUsuariosAdmin.xhtml" target="principal" class="btn menu-item-a">#{men.lst}</a></li>  
+                        </ul>
+                    </div>
+
+                    
+                    
                     <!--<li class="menu-item"><a href="html/reporte.xhtml" target="principal" class="btn menu-item-a">#{men.rep}</a></li>-->
                     <li>
                         <h:form>
